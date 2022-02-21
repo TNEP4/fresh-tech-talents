@@ -27,7 +27,7 @@ export default function CardSlideshow() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <main className="ml-4 sm:mt-5 pb-20">
+        <main className="ml-8 sm:mt-5 pb-20">
         <div className="snap-x snap-mandatory flex w-full overflow-scroll px-2 py-5">
             <div className="snap-start mr-4 bg-zinc-100 shadow-xl hover:shadow-lg hover:shadow-green-400/60 rounded-sm w-80 flex-shrink-0 h-40 flex items-center justify-center text-8xl">1</div>
             <div className="snap-start mr-4 bg-zinc-100 shadow-xl hover:shadow-lg hover:shadow-green-400/60 rounded-sm w-80 flex-shrink-0  h-40 flex items-center justify-center text-8xl">2</div>
