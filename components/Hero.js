@@ -67,7 +67,7 @@ export default function Hero() {
                 height={10}
                 patternUnits="userSpaceOnUse"
               >
-                <rect x={0} y={0} width={2} height={2} className="text-black/60" fill="currentColor" />
+                <rect x={0} y={0} width={2} height={2} className="text-black/50" fill="currentColor" />
               </pattern>
             </defs>
             <rect width={404} height={784} fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)" />
