@@ -8,9 +8,11 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 import { RiWindyFill } from "react-icons/ri";
 
+import ProjectList from './ProjectList'
+
 const tabs = [
-    { name: 'Projects launched this month', href: '#', count: '52', current: true },
-    { name: 'New profiles', href: '#', count: '38', current: false },
+    { name: 'Projects', href: '#', count: '52', current: true },
+    { name: 'Talent Profiles', href: '#', count: '38', current: false },
   ]
   
   function classNames(...classes) {
@@ -27,7 +29,7 @@ export default function PublicDisplay() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <main className="mt-0 mx-auto max-w-5xl px-4">
+        <main className="mt-16 mx-auto max-w-5xl px-4 h-screen">
         <div className="block">
             <div className="border-b border-zinc-600">
             <nav className="-mb-px flex space-x-8" aria-label="Tabs">
@@ -59,11 +61,12 @@ export default function PublicDisplay() {
             </nav>
             </div>
         </div>
-        <div className='h-10'>
-            <div>
 
-            </div>
-        </div>
+          <div className='mt-12'>
+            <ProjectList />
+          </div>
+           
+
         </main>
 
     </div>
