@@ -27,7 +27,7 @@ export default function Hero() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="relative bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 overflow-hidden">
+      <div className="relative overflow-hidden">
       <div className="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full" aria-hidden="true">
         <div className="relative h-full max-w-7xl mx-auto">
           <svg
@@ -42,11 +42,11 @@ export default function Hero() {
                 id="f210dbf6-a58d-4871-961e-36d5016a0f49"
                 x={0}
                 y={0}
-                width={20}
-                height={20}
+                width={10}
+                height={10}
                 patternUnits="userSpaceOnUse"
               >
-                <rect x={0} y={0} width={4} height={4} className="text-black/50" fill="currentColor" />
+                <rect x={0} y={0} width={2} height={2} className="text-black/60" fill="currentColor" />
               </pattern>
             </defs>
             <rect width={404} height={784} fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
@@ -63,11 +63,11 @@ export default function Hero() {
                 id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b"
                 x={0}
                 y={0}
-                width={20}
-                height={20}
+                width={10}
+                height={10}
                 patternUnits="userSpaceOnUse"
               >
-                <rect x={0} y={0} width={4} height={4} className="text-black/50" fill="currentColor" />
+                <rect x={0} y={0} width={2} height={2} className="text-black/60" fill="currentColor" />
               </pattern>
             </defs>
             <rect width={404} height={784} fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)" />
@@ -89,7 +89,7 @@ export default function Hero() {
                       src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                       alt=""
                     /> */}
-                    <h1 className='text-white font-extrabold tracking-tighter text-2xl'>Fresh Tech Talents</h1>
+                    <h1 className='text-white font-extrabold tracking-tight text-2xl'>Fresh Tech Talents</h1>
                   </a>
                   <div className="-mr-2 flex items-center md:hidden">
                     <Popover.Button className="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -110,7 +110,7 @@ export default function Hero() {
                 <span className="inline-flex rounded-full shadow">
                   <a
                     href="#"
-                    className="inline-flex items-center px-6 py-2 border border-transparent text-base font-bold rounded-full text-green-600 bg-zinc-100 hover:bg-zinc-200"
+                    className="inline-flex items-center px-6 py-2 border border-transparent text-base font-bold rounded-full text-green-500 bg-zinc-50 shadow-xl hover:shadow-lg hover:shadow-green-400/60"
                   >
                     Log in
                   </a>
@@ -170,7 +170,7 @@ export default function Hero() {
           </Transition>
         </Popover>
 
-        <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 py-8">
+        <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 pt-8">
           <div className="text-center">
             <h1 className="text-4xl tracking-tight font-extrabold text-slate-50 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">Find rising tech talents</span>{' '}
@@ -179,19 +179,19 @@ export default function Hero() {
             <p className="mt-3 max-w-md mx-auto text-bold text-slate-100 sm:text-lg md:mt-5 md:text-2xl md:max-w-3xl">
                 Launch your career in tech, showcase your best projects.
             </p>
-            <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-20">
+            <div className="mt-4 max-w-md mx-auto sm:flex sm:justify-center md:mt-16">
               <div className="rounded-full shadow">
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-bold rounded-full text-zinc-900 bg-green-400 hover:bg-green-600 md:py-2 md:text-lg md:px-8"
+                  className="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-bold rounded-full text-zinc-900 bg-gradient-to-br from-green-500 to-green-400 md:py-2 md:text-lg md:px-8 shadow-lg shadow-zinc-200/20 hover:shadow-lg hover:shadow-zinc-200/50"
                 >
                   I am a talent
                 </a>
               </div>
-              <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-3">
+              <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-6">
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-bold rounded-full text-green-500 bg-zinc-50 hover:bg-zinc-200 hover:text-green-600 md:py-2 md:text-lg md:px-8"
+                  className="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-bold rounded-full text-green-500 bg-zinc-50 shadow-xl hover:shadow-lg hover:shadow-green-400/60 md:py-2 md:text-lg md:px-8"
                 >
                   I am a recruiter
                 </a>
