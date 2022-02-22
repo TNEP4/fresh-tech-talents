@@ -24,9 +24,11 @@ const tabs = [
 
 export default function PublicDisplay() {
   
+  // Tab state, set to project tab by default
   const [showProjects, setShowProjects] = useState(true);
   const [showTalents, setShowTalents] = useState(false);
 
+  // Toggle between project and talent tabs
   const talentActive = () => {
     setShowProjects(false);
     setShowTalents(true);
@@ -90,6 +92,7 @@ export default function PublicDisplay() {
         </div>
 
           <div className='mt-12 pb-12'>
+            {/* Conditionally render either the project or talent list */}
             {showProjects ? <ProjectList /> : null}
             {showTalents ? <TalentList /> : null}
           </div>
