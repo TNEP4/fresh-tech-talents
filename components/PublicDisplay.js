@@ -60,7 +60,7 @@ export default function PublicDisplay() {
                     <span
                         className={classNames(
                         showProjects ? 'bg-green-100 text-green-800' : 'bg-zinc-600 text-zinc-200',
-                        'hidden ml-3 py-1 px-2 rounded-full text-xs font-medium md:inline-block'
+                        'ml-3 py-1 px-2 rounded-full text-xs font-medium inline-block'
                         )}
                     >
                         54
@@ -81,7 +81,7 @@ export default function PublicDisplay() {
                     <span
                         className={classNames(
                         showTalents ? 'bg-green-100 text-green-800' : 'bg-zinc-600 text-zinc-200',
-                        'hidden ml-3 py-1 px-2 rounded-full text-xs font-medium md:inline-block'
+                        ' ml-3 py-1 px-2 rounded-full text-xs font-medium inline-block'
                         )}
                     >
                         32
