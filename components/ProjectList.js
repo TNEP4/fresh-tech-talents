@@ -218,7 +218,7 @@ export default function ProjectList() {
                           Los Angeles, California
                         </p>
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-300 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          <svg className="-ml-0.5 mr-1 h-3 w-3 text-zinc-300 animate-pulse" fill="currentColor" viewBox="0 0 8 8">
+                          <svg className="-ml-0.5 mr-1 h-3 w-3 text-zinc-300" fill="currentColor" viewBox="0 0 8 8">
                             <circle cx={4} cy={4} r={3} />
                           </svg>
                           NOT SEARCHING
