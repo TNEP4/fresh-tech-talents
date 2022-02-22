@@ -23,7 +23,7 @@ const tabs = [
 export default function PublicDisplay() {
   return (
     <div>
-        <main className="mt-16 mx-auto max-w-5xl px-4 h-screen">
+        <main className="mt-16 mx-auto max-w-5xl px-4 h-full">
         <div className="block">
             <div className="border-b border-zinc-600">
             <nav className="-mb-px flex space-x-8" aria-label="Tabs">
@@ -56,7 +56,7 @@ export default function PublicDisplay() {
             </div>
         </div>
 
-          <div className='mt-12'>
+          <div className='mt-12 pb-12'>
             <ProjectList />
           </div>
            
