@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
@@ -40,7 +41,7 @@ export default function Hero() {
                 height={10}
                 patternUnits="userSpaceOnUse"
               >
-                <rect x={0} y={0} width={2} height={2} className="text-black/60" fill="currentColor" />
+                <rect x={0} y={0} width={2} height={2} className="text-black/80" fill="currentColor" />
               </pattern>
             </defs>
             <rect width={404} height={784} fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
@@ -61,7 +62,7 @@ export default function Hero() {
                 height={10}
                 patternUnits="userSpaceOnUse"
               >
-                <rect x={0} y={0} width={2} height={2} className="text-black/50" fill="currentColor" />
+                <rect x={0} y={0} width={2} height={2} className="text-black/80" fill="currentColor" />
               </pattern>
             </defs>
             <rect width={404} height={784} fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)" />
@@ -101,13 +102,15 @@ export default function Hero() {
                 ))}
               </div>
               <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+              
                 <span className="inline-flex rounded-full shadow">
+                <Link href='/talents/signin'>
                   <a
-                    href="#"
                     className="inline-flex items-center px-6 py-2 border border-transparent text-base font-bold rounded-full text-green-500 bg-zinc-50 shadow-xl hover:shadow-lg hover:shadow-green-400/60"
                   >
-                    Log in
+                    Sign in
                   </a>
+                  </Link>
                 </span>
               </div>
             </nav>
@@ -153,12 +156,13 @@ export default function Hero() {
                     </a>
                   ))}
                 </div>
+                <Link href='/talents/signin'>
                 <a
-                  href="#"
                   className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
                 >
-                  Log in
+                  Sign in
                 </a>
+                </Link>
               </div>
             </Popover.Panel>
           </Transition>
