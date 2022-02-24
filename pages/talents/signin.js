@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
 import { firebase } from '../../utils/firebase';
 
 
@@ -13,18 +14,20 @@ export default function SignIn() {
 
   const router = useRouter()
 
-  const signInWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
+  const signInWithGithub = async () => {
+    const provider = new GithubAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        const credential = GithubAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
+
         // The signed-in user info.
         const user = result.user;
+        router.push('/');
+        console.log(user);
         // ...
-        router.push('/app');
       }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
@@ -32,13 +35,36 @@ export default function SignIn() {
         // The email of the user's account used.
         const email = error.email;
         // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(error + " " + errorCode + " " + errorMessage + " " + email + " " + credential);
+        const credential = GithubAuthProvider.credentialFromError(error);
         // ...
-        router.push('/problem');
       });
+  }
+  // const signInWithGoogle = async () => {
+  //   const provider = new GoogleAuthProvider();
+  //   const auth = getAuth();
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       // This gives you a Google Access Token. You can use it to access the Google API.
+  //       const credential = GoogleAuthProvider.credentialFromResult(result);
+  //       const token = credential.accessToken;
+  //       // The signed-in user info.
+  //       const user = result.user;
+  //       // ...
+  //       router.push('/app');
+  //     }).catch((error) => {
+  //       // Handle Errors here.
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       // The email of the user's account used.
+  //       const email = error.email;
+  //       // The AuthCredential type that was used.
+  //       const credential = GoogleAuthProvider.credentialFromError(error);
+  //       console.log(error + " " + errorCode + " " + errorMessage + " " + email + " " + credential);
+  //       // ...
+  //       router.push('/problem');
+  //     });
       
-  };
+  // };
 
 
 
@@ -56,12 +82,12 @@ export default function SignIn() {
             <RiWindyFill className='mx-auto h-16 w-auto text-green-400'/>
             <h2 className="mt-4 text-center text-3xl font-extrabold text-white">Sign in to your talent account</h2>
             <p className="mt-2 text-center text-md text-zinc-50">
-              Let&aposs launch your career in tech together.
+              Let&apos;s launch your career in tech together.
             </p>
           </div>
           <div className='w-full inline-block '>
             <div className='w-60 text-center items-center flex cursor-pointer flex-row justify-center align-middle mx-auto py-2 rounded-full font-bold text-white bg-black shadow-lg shadow-green-400/50 hover:shadow-green-400/90'
-            onClick={signInWithGoogle}
+            onClick={signInWithGithub}
             >
               <span className='mr-2 self-center'><RiGithubFill className='h-8 w-8' /></span>
               Sign In with Github 
