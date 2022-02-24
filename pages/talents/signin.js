@@ -56,7 +56,7 @@ export default function SignIn() {
             <RiWindyFill className='mx-auto h-16 w-auto text-green-400'/>
             <h2 className="mt-4 text-center text-3xl font-extrabold text-white">Sign in to your talent account</h2>
             <p className="mt-2 text-center text-md text-zinc-50">
-              Let's launch your career in tech together.
+              Let&aposs launch your career in tech together.
             </p>
           </div>
           <div className='w-full inline-block '>
