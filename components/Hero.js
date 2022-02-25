@@ -84,7 +84,7 @@ export default function Hero() {
                       src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                       alt=""
                     /> */}
-                    <h1 className='text-white font-extrabold tracking-tight text-base sm:text-2xl'>Fresh-tech-talents</h1>
+                    <h1 className='text-white font-extrabold tracking-tight text-md sm:text-2xl'>Fresh-tech-talents</h1>
                   </a>
                 </div>
               </div>
