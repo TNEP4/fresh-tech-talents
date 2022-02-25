@@ -78,7 +78,7 @@ export default function Navbar() {
                 <div className="flex-shrink-0">
                   <button
                     type="button"
-                    className="relative inline-flex items-center px-4 py-1.5 border border-transparent text-sm font-bold rounded-full text-zinc-900 hover:text-black bg-green-400 shadow-lg hover:shadow-zinc-100/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                    className="relative inline-flex items-center px-4 py-1.5 border border-transparent text-sm font-bold rounded-full text-zinc-900 hover:text-black bg-zinc-50 shadow-lg hover:shadow-lg hover:shadow-green-400/40 active:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-offset focus:ring-green-500"
                   >
                     <PlusSmIcon className="-ml-1 mr-1 h-6 w-6" aria-hidden="true" />
                     <span>Add project</span>
