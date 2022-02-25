@@ -25,7 +25,7 @@ export default function SignIn() {
 
         // The signed-in user info.
         const user = result.user;
-        router.push('/');
+        router.push('/talent/profile');
         console.log(user);
         // ...
       }).catch((error) => {
@@ -76,7 +76,7 @@ export default function SignIn() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
      
-      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800">
+      <div className="min-h-screen flex items-center -mt-10 sm:mt-0 justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800">
         <div className="max-w-md w-full space-y-10">
           <div>
             <RiWindyFill className='mx-auto h-16 w-auto text-green-400'/>
