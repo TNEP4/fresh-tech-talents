@@ -84,7 +84,7 @@ export default function Navbar() {
                     <span>Add project</span>
                   </button>
                 </div>
-                <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
+                <div className="hidden md:flex-shrink-0 md:flex md:items-center">
                   {/* <button
                     type="button"
                     className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
