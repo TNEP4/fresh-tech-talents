@@ -113,11 +113,11 @@ export default function Hero() {
 
         <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 pt-8">
           <div className="text-center">
-            <h1 className="text-4xl tracking-tight font-extrabold text-slate-50 sm:text-5xl md:text-6xl">
+            <h1 className="text-3xl tracking-tight font-extrabold text-zinc-50 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">Find rising tech talents</span>{' '}
               <span className="block text-transparent bg-clip-text bg-gradient-to-br from-green-500 to-green-400 xl:inline">open to work.</span>
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-bold text-slate-100 sm:text-lg md:mt-5 md:text-2xl md:max-w-3xl">
+            <p className="mt-3 max-w-md mx-auto text-bold text-zinc-50 text-xs sm:text-lg md:mt-5 md:text-2xl md:max-w-3xl">
                 Launch your career in tech, showcase your best projects.
             </p>
             <div className="mt-4 max-w-md mx-auto sm:flex sm:justify-center md:mt-16">
