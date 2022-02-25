@@ -84,14 +84,8 @@ export default function Hero() {
                       src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                       alt=""
                     /> */}
-                    <h1 className='text-white font-extrabold tracking-tight text-2xl'>Fresh-tech-talents</h1>
+                    <h1 className='text-white font-extrabold tracking-tight text-base sm:text-2xl'>Fresh-tech-talents</h1>
                   </a>
-                  <div className="-mr-2 flex items-center md:hidden">
-                    <Popover.Button className="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                      <span className="sr-only">Open main menu</span>
-                      <MenuIcon className="h-6 w-6" aria-hidden="true" />
-                    </Popover.Button>
-                  </div>
                 </div>
               </div>
               <div className="hidden md:flex md:space-x-10">
@@ -101,12 +95,12 @@ export default function Hero() {
                   </a>
                 ))}
               </div>
-              <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+              <div className="md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
               
                 <span className="inline-flex rounded-full shadow">
-                <Link href='/talents/signin'>
+                <Link href='/talent/signin'>
                   <a
-                    className="inline-flex items-center px-6 py-2 border border-transparent text-base font-bold rounded-full text-green-500 bg-zinc-50 shadow-xl hover:shadow-lg hover:shadow-green-400/60"
+                    className="inline-flex items-center px-3 py-1 text-sm sm:px-6 sm:py-2 sm:text-base border border-transparent text-base font-bold rounded-full text-green-500 bg-zinc-50 shadow-xl hover:shadow-lg hover:shadow-green-400/60"
                   >
                     Sign in
                   </a>
@@ -115,57 +109,6 @@ export default function Hero() {
               </div>
             </nav>
           </div>
-
-          <Transition
-            as={Fragment}
-            enter="duration-150 ease-out"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="duration-100 ease-in"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <Popover.Panel
-              focus
-              className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-            >
-              <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                <div className="px-5 pt-4 flex items-center justify-between">
-                  <div>
-                    <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                      <span className="sr-only">Close menu</span>
-                      <XIcon className="h-6 w-6" aria-hidden="true" />
-                    </Popover.Button>
-                  </div>
-                </div>
-                <div className="px-2 pt-2 pb-3">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                <Link href='/talents/signin'>
-                <a
-                  className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
-                >
-                  Sign in
-                </a>
-                </Link>
-              </div>
-            </Popover.Panel>
-          </Transition>
         </Popover>
 
         <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 pt-8">
@@ -179,12 +122,13 @@ export default function Hero() {
             </p>
             <div className="mt-4 max-w-md mx-auto sm:flex sm:justify-center md:mt-16">
               <div className="rounded-full shadow">
+                <Link href='/talent/signin'>
                 <a
-                  href="#"
                   className="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-bold rounded-full text-zinc-900 bg-gradient-to-br from-green-500 to-green-400 md:py-2 md:text-lg md:px-8 shadow-lg shadow-zinc-200/20 hover:shadow-lg hover:shadow-zinc-200/50"
                 >
                   I am a talent
                 </a>
+                </Link>
               </div>
               <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-6">
                 <a
