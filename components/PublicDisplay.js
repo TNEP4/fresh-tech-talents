@@ -41,7 +41,7 @@ export default function PublicDisplay() {
   
   return (
     <div>
-        <main className="mt-16 mx-auto max-w-5xl px-4 h-full">
+        <main className="mt-16 mb-10 mx-auto max-w-5xl px-4 h-full">
         <div className="block">
             <div className="border-b border-zinc-600">
             <nav className="-mb-px flex space-x-8" aria-label="Tabs">

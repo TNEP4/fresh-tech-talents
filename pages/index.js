@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Hero from '../components/Hero'
 import CardSlideshow from '../components/CardSlideshow'
 import PublicDisplay from '../components/PublicDisplay'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <Hero />
       <CardSlideshow />
       <PublicDisplay />
+
+      <Footer />
 
     </div>
   )
