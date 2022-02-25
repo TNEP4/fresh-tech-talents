@@ -24,7 +24,7 @@ export default function TalentList() {
       <div className='flex flex-col space-y-10 mb-10'>
 
           {/* Row 1 */}
-          <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer'>
+          <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
               <div className=''>
                   <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
               </div>
@@ -75,7 +75,7 @@ export default function TalentList() {
               </div>
             </div>
             {/* Row 2 */}
-            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer'>
+            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
               <div className=''>
                   <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
               </div>
@@ -99,7 +99,7 @@ export default function TalentList() {
                         </span> 
                       </div>
                   </div>
-                  <div className='w-full mt-3 text-zinc-200 space-y-2'>
+                  <div className='w-full mt-3 text-zinc-200 space-y-2 border border-zinc-800/20'>
                     <p className='text-sm'>
                       This is the Talent overview, that will describe in one sentence what the Talent is about.
                     </p>
@@ -126,7 +126,7 @@ export default function TalentList() {
               </div>
             </div>
             {/* Row 3 */}
-            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer'>
+            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
               <div className=''>
                   <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
               </div>
@@ -177,7 +177,7 @@ export default function TalentList() {
               </div>
             </div>
             {/* Row 4 */}
-            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer'>
+            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
               <div className=''>
                   <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
               </div>

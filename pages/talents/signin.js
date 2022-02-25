@@ -82,11 +82,11 @@ export default function SignIn() {
             <RiWindyFill className='mx-auto h-16 w-auto text-green-400'/>
             <h2 className="mt-4 text-center text-3xl font-extrabold text-white">Sign in to your talent account</h2>
             <p className="mt-2 text-center text-md text-zinc-50">
-              Let&apos;s launch your career in tech together.
+              Let&apos;s launch your career in tech.
             </p>
           </div>
           <div className='w-full inline-block '>
-            <div className='w-60 text-center items-center flex cursor-pointer flex-row justify-center align-middle mx-auto py-2 rounded-full font-bold text-white bg-black shadow-lg shadow-green-400/50 hover:shadow-green-400/90'
+            <div className='w-60 text-center items-center flex cursor-pointer flex-row justify-center align-middle mx-auto py-2 rounded-full font-bold text-white bg-black/50 hover:bg-black shadow-lg shadow-green-400/50 hover:shadow-green-400/90'
             onClick={signInWithGithub}
             >
               <span className='mr-2 self-center'><RiGithubFill className='h-8 w-8' /></span>
