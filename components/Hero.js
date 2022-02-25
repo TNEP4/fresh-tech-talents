@@ -100,7 +100,7 @@ export default function Hero() {
                 <span className="inline-flex rounded-full shadow">
                 <Link href='/talent/signin'>
                   <a
-                    className="inline-flex items-center px-3 py-1 text-sm sm:px-6 sm:py-2 sm:text-base border border-transparent font-bold rounded-full text-green-500 bg-zinc-50 shadow-xl hover:shadow-lg hover:shadow-green-400/60"
+                    className="inline-flex items-center px-3 py-1 text-sm sm:px-6 sm:py-2 sm:text-base border border-transparent font-bold rounded-full text-zinc-900 hover:text-black bg-zinc-50 shadow-lg hover:shadow-lg hover:shadow-green-400/80 active:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-offset focus:ring-green-500"
                   >
                     Sign in
                   </a>
