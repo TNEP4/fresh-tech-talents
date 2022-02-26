@@ -49,7 +49,9 @@ export default function Navbar() {
                 onClick={(e) => { setProfileActive(true); setExploreActive(false); setSettingsActive(false); }}
                 >
                   <Link href='/user/profile'>
-                    <RiWindyFill className='block lg:hidden h-8 w-auto text-green-400 cursor-pointer' />
+                    <div>
+                      <RiWindyFill className='block lg:hidden h-8 w-auto text-green-400 cursor-pointer' />
+                    </div>
                   </Link>
                   <div className="hidden lg:block">
                     <Link href='/user/profile'>

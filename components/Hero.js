@@ -95,17 +95,27 @@ export default function Hero() {
                   </a>
                 ))}
               </div>
-              <div className="md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+              <div className="md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 space-x-4">
               
                 <span className="inline-flex rounded-full shadow">
-                <Link href='/talent-signin'>
-                  <a
-                    className="inline-flex items-center px-3 py-1 text-sm sm:px-6 sm:py-2 sm:text-base border border-transparent font-bold rounded-full text-zinc-900 hover:text-black bg-zinc-50 shadow-lg hover:shadow-lg hover:shadow-green-400/80 active:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-offset focus:ring-green-500"
-                  >
-                    Sign in
-                  </a>
+                  <Link href='/talent-signin'>
+                    <a
+                      className="inline-flex items-center px-3 py-1 text-sm sm:px-6 sm:py-2 sm:text-base border border-transparent font-bold rounded-full text-zinc-50 hover:text-green-400 hover:underline  focus:outline-none focus:ring-2 focus:ring-offset focus:ring-green-500"
+                    >
+                      Sign in
+                    </a>
                   </Link>
                 </span>
+                <span className="inline-flex rounded-full shadow">
+                  <Link href='/talent-signup'>
+                    <a
+                      className="inline-flex items-center px-3 py-1 text-sm sm:px-6 sm:py-2 sm:text-base border border-transparent font-bold rounded-full text-zinc-900 hover:text-black bg-zinc-50 shadow-lg hover:shadow-lg hover:shadow-green-400/80 active:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-offset focus:ring-green-500"
+                    >
+                      Sign up
+                    </a>
+                  </Link>
+                </span>
+                
               </div>
             </nav>
           </div>

@@ -1,7 +1,55 @@
 
 import { RiLinkedinBoxFill, RiTwitterFill, RiGithubFill } from "react-icons/ri";
+import { collection, getDocs, onSnapshot, query, orderBy, where, doc, getDoc, deleteDoc, updateDoc, setDoc, docSnap } from '@firebase/firestore';
+
+import { db, auth } from '../utils/firebase';
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../utils/context';
+
 
 export default function Profile() {
+
+    const { user, username } = useContext(UserContext);
+    console.log(user);
+
+    useEffect(() => {
+        if (user) {
+        const uid = auth.currentUser.uid;
+        console.log(uid);
+        const docRef = doc(db, "users", uid);
+        }});
+
+    // Get one document
+    // const page = [];
+    
+
+
+    // Set page data
+    // const [pageTitle, setPageTitle] = useState('Loading...');
+    // const [pageUrl, setPageUrl] = useState('Loading...');
+    // const [pageDescription, setPageDescription] = useState('Loading...');
+    // const [pageSummary, setPageSummary] = useState('Loading...');
+    // const [keywords, setKeywords] = useState('Loading...');
+
+    // useEffect(() => {
+    //     const docSnap = getDoc(docRef)
+    //     .then((doc) => {
+
+    //         docSnap = doc.data();
+    //         console.log('docSnap', docSnap);
+    //         setPageTitle(docSnap.pageTitle);
+    //         console.log('pageTitle', pageTitle);
+    //         setPageUrl(docSnap.url);
+    //         console.log('pageUrl', pageUrl);
+    //         setPageDescription(docSnap.pageDescription);
+    //         console.log('pageDescription', pageDescription);
+    //         setPageSummary(docSnap.aiSummary);
+    //         console.log('pageSummary', pageSummary);
+    //         setKeywords(docSnap.aiKeywords);
+    //         console.log('keywords', keywords);
+    //     })
+    // }, [pageId]);
+
     return (
         <div className='mx-1 rounded-sm flex flex-row shadow-lg shadow-zinc-400/10 border border-zinc-800/20'>
             <div className="p-3 sm:p-6 text-zinc-100 w-full space-y-6">
@@ -13,7 +61,7 @@ export default function Profile() {
                         <div className="flex flex-col w-full h-full justify-between">
                             <div className="flex flex-row justify-between">
                                 <div className="flex flex-row space-x-4">
-                                    <p className="text-white font-bold">First Name Last Name</p>
+                                    { user ? <p className="text-white font-bold">{user.displayName}</p> : <p className="text-white font-bold">Loading</p>}
                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-gradient-to-br from-zinc-800 to-zinc-700">
                                         <svg className="-ml-0.5 mr-1 h-3 w-3 text-green-400 animate-pulse" fill="currentColor" viewBox="0 0 8 8">
                                             <circle cx={4} cy={4} r={3} />
@@ -34,7 +82,6 @@ export default function Profile() {
                                     </a>
                                 </div>
                             </div>
-
                             <p className="text-green-400 underline underline-offset-1 font-medium cursor-alias">portfolio-url.com</p>
                             <p>Long profile description, bio of about 1 sentence to explain why this talent is amazing and how unique.</p>
                         </div>
