@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
-import { firebase } from '../../utils/firebase';
+import { firebase } from '../utils/firebase';
 
 
 import Head from 'next/head'
@@ -25,7 +25,7 @@ export default function SignIn() {
 
         // The signed-in user info.
         const user = result.user;
-        router.push('/talent/profile');
+        router.push('/user/profile');
         console.log(user);
         // ...
       }).catch((error) => {
