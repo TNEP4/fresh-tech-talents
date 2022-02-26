@@ -5,6 +5,10 @@ import { PlusSmIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
 
+import { auth } from '../utils/firebase';
+import { useContext } from 'react';
+import { UserContext } from '../utils/context';
+
 import { RiWindyFill } from "react-icons/ri";
 
 function classNames(...classes) {
@@ -18,9 +22,13 @@ export default function Navbar() {
   const [exploreActive, setExploreActive] = useState("");
   const [settingsActive, setSettingsActive] = useState("");
 
+  const { user, username } = useContext(UserContext);
 
   return (
-    <Disclosure as="nav" className="shadow-lg border-b border-zinc-700/60 bg-zinc-900">
+    <>
+    { user && (
+          <>
+    <Disclosure as="nav" className="shadow-lg border-b border-zinc-700/60 bg-zinc-900 sticky top-0 z-50">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -247,5 +255,8 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
+    </>
+    )}
+    </>
   )
 }

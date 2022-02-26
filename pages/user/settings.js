@@ -7,8 +7,20 @@ import { RiWindyFill } from "react-icons/ri";
 import Footer from '../../components/Footer';
 import PrivateDisplay from '../../components/PrivateDisplay';
 
+import { auth } from '../../utils/firebase';
+
 
 export default function AddProject() {
+
+    const router = useRouter()
+
+
+    // Sign out button
+    function SignOutButton() {
+        auth.signOut();
+        router.push('/');
+    }
+
 
     return (
         <>
@@ -18,8 +30,14 @@ export default function AddProject() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className='bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 h-screen' >
-            <main className="pt-8 sm:pt-12 mx-auto max-w-7xl px-4 sm:px-8 pb-12 h-full text-white">
-                Settings
+            <main className="pt-8 sm:pt-12 mx-auto max-w-6xl px-4 sm:px-8 pb-12 h-full text-white">
+                <div className='mt-4'>
+                    <button className='bg-zinc-800 rounded-full px-6 py-2 hover:bg-zinc-600'
+                    onClick={SignOutButton}
+                    >
+                        Sign out
+                    </button>
+                </div>
             </main>
             <Footer />
         </div>
