@@ -19,11 +19,9 @@ export default function ExplorePage() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className='bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800' >
-            <Navbar  />
-            <main className="mt-8 sm:mt-12 mx-auto max-w-7xl px-4 sm:px-8 pb-12 h-full">
+            <main className="pt-1 mx-auto max-w-7xl px-4 sm:px-8 pb-12 h-full">
                 <PrivateDisplay />
             </main>
-            <Footer />
         </div>
         </>
     )

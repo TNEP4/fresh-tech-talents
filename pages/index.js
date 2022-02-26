@@ -20,8 +20,6 @@ export default function Home() {
       <CardSlideshow />
       <PublicDisplay />
 
-      <Footer />
-
     </div>
   )
 }

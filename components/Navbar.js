@@ -20,7 +20,7 @@ export default function Navbar() {
 
 
   return (
-    <Disclosure as="nav" className="shadow-lg border-b border-zinc-700/60">
+    <Disclosure as="nav" className="shadow-lg border-b border-zinc-700/60 bg-zinc-900">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,6 +143,7 @@ export default function Navbar() {
                   <button
                     type="button"
                     className="relative inline-flex items-center px-4 py-1.5 border border-transparent text-sm font-bold rounded-full text-zinc-900 hover:text-black bg-zinc-50 shadow-lg hover:shadow-lg hover:shadow-green-400/40 active:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-offset focus:ring-green-500"
+                    onClick={() => { setProfileActive(false); setExploreActive(false); setSettingsActive(false); }}
                   >
                     <PlusSmIcon className="-ml-1 mr-1 h-6 w-6" aria-hidden="true" />
                     <span>Add project</span>

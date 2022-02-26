@@ -4,7 +4,6 @@ import Head from 'next/head'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import { RiWindyFill } from "react-icons/ri";
 
-import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Profile from '../../components/Profile';
 
@@ -19,11 +18,9 @@ export default function ProfilePage() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className='bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800' >
-            <Navbar />
-            <main className="mt-8 sm:mt-12 mx-auto max-w-6xl px-4 sm:px-8 pb-12 h-full">
+            <main className="pt-8 sm:pt-12 mx-auto max-w-6xl px-4 sm:px-8 pb-12 h-full">
                 <Profile />
             </main>
-            <Footer />
         </div>
         </>
     )

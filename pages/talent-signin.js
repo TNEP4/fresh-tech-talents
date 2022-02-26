@@ -10,7 +10,7 @@ import { RiWindyFill } from "react-icons/ri";
 import { RiGithubFill } from "react-icons/ri";
 import { FirebaseError } from 'firebase/app';
 
-export default function SignIn() {
+export default function TalentSignIn() {
 
   const router = useRouter()
 

@@ -98,7 +98,7 @@ export default function Hero() {
               <div className="md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
               
                 <span className="inline-flex rounded-full shadow">
-                <Link href='/signin'>
+                <Link href='/talent-signin'>
                   <a
                     className="inline-flex items-center px-3 py-1 text-sm sm:px-6 sm:py-2 sm:text-base border border-transparent font-bold rounded-full text-zinc-900 hover:text-black bg-zinc-50 shadow-lg hover:shadow-lg hover:shadow-green-400/80 active:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-offset focus:ring-green-500"
                   >
@@ -122,7 +122,7 @@ export default function Hero() {
             </p>
             <div className="mt-4 max-w-md mx-auto sm:flex sm:justify-center md:mt-16">
               <div className="rounded-full shadow">
-                <Link href='/signin'>
+                <Link href='/talent-signin'>
                 <a
                   className="w-full flex items-center justify-center px-4 py-3 border border-transparent text-base font-bold rounded-full text-zinc-900 bg-gradient-to-br from-green-500 to-green-400 md:py-2 md:text-lg md:px-8 shadow-lg shadow-zinc-200/20 hover:shadow-lg hover:shadow-zinc-200/50"
                 >
