@@ -13,6 +13,7 @@ export default function Profile() {
     console.log(user);
     
     // Set page data
+    const [photoURL, setPhotoURL] = useState('https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png');
     const [displayName, setDisplayName] = useState("Loading...");
     const [bio, setBio] = useState('Loading...');
     const [interests, setInterests] = useState(['Loading...']);
@@ -36,6 +37,7 @@ export default function Profile() {
 
             docSnap = doc.data();
             console.log('docSnap', docSnap);
+            setPhotoURL(docSnap.photoURL);
             setDisplayName(docSnap.displayName);
             setBio(docSnap.bio);
             setInterests(docSnap.interests);
@@ -51,31 +53,12 @@ export default function Profile() {
         })
         }}, [user]);
 
-    // useEffect(() => {
-    //     const docSnap = getDoc(docRef)
-    //     .then((doc) => {
-
-    //         docSnap = doc.data();
-    //         console.log('docSnap', docSnap);
-    //         setPageTitle(docSnap.pageTitle);
-    //         console.log('pageTitle', pageTitle);
-    //         setPageUrl(docSnap.url);
-    //         console.log('pageUrl', pageUrl);
-    //         setPageDescription(docSnap.pageDescription);
-    //         console.log('pageDescription', pageDescription);
-    //         setPageSummary(docSnap.aiSummary);
-    //         console.log('pageSummary', pageSummary);
-    //         setKeywords(docSnap.aiKeywords);
-    //         console.log('keywords', keywords);
-    //     })
-    // }, [pageId]);
-
     return (
         <div className='mx-1 rounded-sm flex flex-row shadow-lg shadow-zinc-400/10 border border-zinc-800/20'>
             <div className="p-3 sm:p-6 text-zinc-100 w-full space-y-6">
                 <div className="flex flex-row space-x-4 w-full">
                     <div className="">
-                        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" className="rounded-sm h-20 w-20" />
+                        <img src={photoURL} className="rounded-sm h-20 w-20" />
                     </div>
                     <div className="flex flex-row w-full ">
                         <div className="flex flex-col w-full h-full justify-between">
