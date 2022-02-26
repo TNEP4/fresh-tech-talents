@@ -37,26 +37,16 @@ export default function Navbar() {
                     )}
                   </Disclosure.Button>
                 </div>
-                <div className="flex-shrink-0 flex items-center">
+                <div className="flex-shrink-0 flex items-center"
+                onClick={(e) => { setProfileActive(true); setExploreActive(false); setSettingsActive(false); }}
+                >
                   <Link href='/user/profile'>
                     <RiWindyFill className='block lg:hidden h-8 w-auto text-green-400 cursor-pointer' />
                   </Link>
-                  {/* <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                    alt="Workflow"
-                  /> */}
                   <div className="hidden lg:block">
                     <Link href='/user/profile'>
-                      <a  className="lg:flex lg:flex-row items-center">
-                        
-                          <RiWindyFill className='h-8 w-auto mr-2 text-green-400' />
-                        {/* <span className="sr-only">Workflow</span>
-                        <img
-                          className="h-8 w-auto sm:h-10"
-                          src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                          alt=""
-                        /> */}
+                      <a className="lg:flex lg:flex-row items-center">
+                        <RiWindyFill className='h-8 w-auto mr-2 text-green-400' />
                         <h1 className='text-white font-extrabold tracking-tight text-xl'>Fresh-tech-talents</h1>
                       </a>
                     </Link>
