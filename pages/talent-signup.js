@@ -39,17 +39,17 @@ export default function TalentSignIn() {
           photoURL: user.photoURL,
           displayName: user.displayName,
           githubId : user.reloadUserInfo.screenName,
-          // openToWork : true,
-          // portfolioUrl : "",
-          // bio : "",
-          // location : "",
-          // interests: [],
-          // prefers: [],
-          // languages: [],
-          // stack: [],
-          // socialGithub: "",
-          // socialLinkedin: "",
-          // socialTwitter: "",
+          openToWork : true,
+          portfolioUrl : "",
+          bio : "",
+          location : "",
+          interests: [],
+          prefers: [],
+          languages: [],
+          stack: [],
+          socialGithub: "",
+          socialLinkedin: "",
+          socialTwitter: "",
           _createdAt: serverTimestamp(),
           _updatedAt: serverTimestamp()
           }, { merge: true }).then(function() {
@@ -74,10 +74,12 @@ export default function TalentSignIn() {
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
+        console.log("Print result:___", result)
         // This gives you a GitHub Access Token. You can use it to access the GitHub API.
         const credential = GithubAuthProvider.credentialFromResult(result);
+        console.log("Print credential:___", credential)
         const token = credential.accessToken;
-
+        console.log("Print token:___", token)
         // The signed-in user info.
         const user = result.user;
         console.log(user);

@@ -5,7 +5,7 @@ import { getFirestore } from "firebase/firestore";
 import 'firebase/firestore';
 import { GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-
+import 'firebase/storage'
 const firebaseConfig = {
     apiKey: "AIzaSyD9txFZ5-bnjr02jRsjwX5glp5HcRZPXnI",
     authDomain: "fresh-tech-talents.firebaseapp.com",
