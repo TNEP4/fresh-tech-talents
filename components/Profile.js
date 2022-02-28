@@ -173,7 +173,7 @@ export default function Profile() {
           <div className="space-x-2">
             {stack.map((stackItem, index) => {
               return (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
+                <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
                   {stackItem}
                 </span>
               );

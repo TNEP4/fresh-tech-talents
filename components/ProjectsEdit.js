@@ -90,22 +90,22 @@ export default function ProjectEdit() {
   return (
     <div className="mx-1 rounded-sm flex flex-row shadow-lg shadow-zinc-400/10 border border-zinc-800/20">
       <div className="p-3 sm:p-6 text-zinc-100 w-full space-y-6">
-        <p class=" flex w-full text-2xl justify-center m-6">Edit Projects</p>
+        <p className=" flex w-full text-2xl justify-center m-6">Edit Projects</p>
         
        
 
-        <div class="hidden sm:block" aria-hidden="true">
-          <div class="py-5">
-            <div class="border-t border-gray-200"></div>
+        <div className="hidden sm:block" aria-hidden="true">
+          <div className="py-5">
+            <div className="border-t border-gray-200"></div>
           </div>
         </div>
         
 
 
 
-        <div class="hidden sm:block" aria-hidden="true">
-          <div class="py-5">
-            <div class="border-t border-gray-200"></div>
+        <div className="hidden sm:block" aria-hidden="true">
+          <div className="py-5">
+            <div className="border-t border-gray-200"></div>
           </div>
         </div>
 
