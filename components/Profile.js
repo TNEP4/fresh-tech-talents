@@ -84,13 +84,13 @@ export default function Profile() {
     <div className="mx-1 rounded-sm flex flex-row shadow-lg shadow-zinc-400/10 border border-zinc-800/20">
      
       <div className="p-3 sm:p-6 text-zinc-100 w-full space-y-3">
-        <div class="hidden sm:block" aria-hidden="true">
-          <div class="py-2">
-            <div class="flex justify-between">
+        <div className="hidden sm:block" aria-hidden="true">
+          <div className="py-2">
+            <div className="flex justify-between">
             <p className="font-bold">Profile Info</p>
-              <button onClick={editProfile} class="text-zinc-200"> Edit Profile </button>
+              <button onClick={editProfile} className="text-zinc-200"> Edit Profile </button>
             </div>
-            <div class="border-t border-gray-200 mt-3"></div>
+            <div className="border-t border-gray-200 mt-3"></div>
           </div>
         </div>
         <div className="flex flex-row space-x-4 w-full">
@@ -183,13 +183,13 @@ export default function Profile() {
 
         <div className="space-y-4">
           
-          <div class="hidden sm:block" aria-hidden="true">
-          <div class="py-2">
-              <div class="flex justify-between">
+          <div className="hidden sm:block" aria-hidden="true">
+          <div className="py-2">
+              <div className="flex justify-between">
               <p className="font-bold">Projects</p>
-              <button onClick={editProjects} class="text-zinc-200"> Edit Projects </button>
+              <button onClick={editProjects} className="text-zinc-200"> Edit Projects </button>
             </div>
-            <div class="border-t border-gray-200 mt-3"></div>
+            <div className="border-t border-gray-200 mt-3"></div>
           </div>
         </div>
           {/* Project list */}

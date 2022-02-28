@@ -44,7 +44,7 @@ export default function AddProject() {
     setDoc(docRef, {
       title,
       description,
-      imageURL,
+      imageUrl,
       _createdAt: serverTimestamp(),
       _updatedAt: serverTimestamp(),
     });
@@ -81,81 +81,81 @@ export default function AddProject() {
   };
 
   return (
-    <div class= "w-1/2 mx-auto">
+    <div className= "w-1/2 mx-auto">
       <form action="#" method="POST">
-        <div class="shadow sm:rounded-md sm:overflow-hidden">
-          <div class="px-4 py-5 bg-zinc-800 space-y-6 sm:p-6">
-            <div class="grid grid-cols-3 gap-6">
-              <div class="col-span-3 sm:col-span-2">
+        <div className="shadow sm:rounded-md sm:overflow-hidden">
+          <div className="px-4 py-5 bg-zinc-800 space-y-6 sm:p-6">
+            <div className="grid grid-cols-3 gap-6">
+              <div className="col-span-3 sm:col-span-2">
                 <label
-                  for="company-website"
-                  class="block text-sm font-medium text-zinc-200"
+                  htmlFor="company-website"
+                  className="block text-sm font-medium text-zinc-200"
                 >
                   {" "}
                   Project Title{" "}
                 </label>
-                <div class="mt-1 flex rounded-md shadow-sm">
+                <div className="mt-1 flex rounded-md shadow-sm">
                   <input
                     type="text"
                     name="userName"
                     id="userName"
-                    class="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none text-zinc-200 rounded-r-md sm:text-sm border-gray-300"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none text-zinc-200 rounded-r-md sm:text-sm border-gray-300"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-3 gap-6">
-              <div class="col-span-3 sm:col-span-2">
+            <div className="grid grid-cols-3 gap-6">
+              <div className="col-span-3 sm:col-span-2">
                 <label
-                  for="company-website"
-                  class="block text-sm font-medium text-zinc-200"
+                  htmlFor="company-website"
+                  className="block text-sm font-medium text-zinc-200"
                 >
                   {" "}
                   Project Description{" "}
                 </label>
-                <div class="mt-1 flex rounded-md shadow-sm">
+                <div className="mt-1 flex rounded-md shadow-sm">
                   <input
                     type="text"
                     name="displayName"
                     id="displayName"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    class="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
                   />
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-3 gap-6">
-              <div class="col-span-3 sm:col-span-2">
+            <div className="grid grid-cols-3 gap-6">
+              <div className="col-span-3 sm:col-span-2">
                 <label
-                  for="company-website"
-                  class="block text-sm font-medium text-zinc-200"
+                  htmlFor="company-website"
+                  className="block text-sm font-medium text-zinc-200"
                 >
                   {" "}
                   Upload Screenshot{" "}
                 </label>
-                <div class="mt-1 flex rounded-md shadow-sm">
+                <div className="mt-1 flex rounded-md shadow-sm">
                   <input
                     type="text"
                     name="imageUrl"
                     value={imageUrl}
                     onChange={(e)=>setImageUrl(e.target.value)}
-                    class="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
                   />
                 </div>
                 <fieldset>
                   <div>
-                    <legend class="text-base font-medium text-white-900 mb-3 mt-5">
+                    <legend className="text-base font-medium text-white-900 mb-3 mt-5">
                       Add/Remove Stack
                     </legend>
                   </div>
                   <div className="space-x-2 flex justify-between w-1/2 mb-6">
-                    <p class="mr-5">Featured stack:</p>
+                    <p className="mr-5">Featured stack:</p>
                     {stack.map((stackItem, index) => {
                       return (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
+                        <span key= {index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
                           {stackItem}
                           <span
                             onClick={(e) => deleteStack(stackItem)}
@@ -168,11 +168,11 @@ export default function AddProject() {
                       );
                     })}
                   </div>
-                  <div class="flex justify-between w-1/2">
+                  <div className="flex justify-between w-1/2">
                     <p>Click to add stack</p>
-                    <div class="flex justify-between w-1/2">
-                      <div class="mt-4 space-y-4">
-                        <div class="flex items-center">
+                    <div className="flex justify-between w-1/2">
+                      <div className="mt-4 space-y-4">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -182,7 +182,7 @@ export default function AddProject() {
                             Python
                           </button>
                         </div>
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -192,7 +192,7 @@ export default function AddProject() {
                             NextJS
                           </button>
                         </div>
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -203,8 +203,8 @@ export default function AddProject() {
                           </button>
                         </div>
                       </div>
-                      <div class="mt-4 space-y-4">
-                        <div class="flex items-center">
+                      <div className="mt-4 space-y-4">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -214,7 +214,7 @@ export default function AddProject() {
                             Firebase
                           </button>
                         </div>
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -224,7 +224,7 @@ export default function AddProject() {
                             MERN
                           </button>
                         </div>
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -235,8 +235,8 @@ export default function AddProject() {
                           </button>
                         </div>
                       </div>
-                      <div class="mt-4 space-y-4">
-                        <div class="flex items-center">
+                      <div className="mt-4 space-y-4">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -246,7 +246,7 @@ export default function AddProject() {
                             TypeScript
                           </button>
                         </div>
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -256,7 +256,7 @@ export default function AddProject() {
                             Dart
                           </button>
                         </div>
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <button
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
                             onClick={(e) => stackHandler(e.target.value)}
@@ -271,13 +271,13 @@ export default function AddProject() {
                   </div>
                 </fieldset>
 
-                <div class="px-4 py-3 text-right sm:px-6 ">
+                <div className="px-4 py-3 text-right sm:px-6 ">
                   <button
                     onClick={(e) => {
                       createProject(e);
                     }}
                     type="submit"
-                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Save
                   </button>
