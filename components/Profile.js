@@ -187,82 +187,10 @@ export default function Profile() {
           <div className="py-2">
               <div className="flex justify-between">
               <p className="font-bold">Projects</p>
-              <button onClick={editProjects} className="text-zinc-200"> Edit Projects </button>
             </div>
             <div className="border-t border-gray-200 mt-3"></div>
           </div>
         </div>
-          {/* Project list */}
-          {/* Project 1 */}
-          <div className="rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20">
-            <div className="">
-              <img
-                className="object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm"
-                src="https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80"
-              />
-            </div>
-            <div className="py-3 px-6 text-zinc-50 w-ful space-y-2">
-              <h1 className="text-base font-bold">Project name 1</h1>
-              <p className="text-sm">
-                This is the project overview, that will describe in one sentence
-                what the project is about.
-              </p>
-              <p className="text-sm">
-                This is the project description, that will describe in two
-                sentences why the talent created the project, with which tool
-                stack, and how much time it took him to complete it.
-              </p>
-              <div className="space-x-4 flex flex-row text-sm pt-1 ">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  React
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  Nextjs
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  Tailwind
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  Firebase
-                </span>
-              </div>
-            </div>
-          </div>
-          {/* Project 2 */}
-          <div className="rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20">
-            <div className="">
-              <img
-                className="object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm"
-                src="https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80"
-              />
-            </div>
-            <div className="py-3 px-6 text-zinc-50 w-ful space-y-2">
-              <h1 className="text-base font-bold">Project name 1</h1>
-              <p className="text-sm">
-                This is the project overview, that will describe in one sentence
-                what the project is about.
-              </p>
-              <p className="text-sm">
-                This is the project description, that will describe in two
-                sentences why the talent created the project, with which tool
-                stack, and how much time it took him to complete it.
-              </p>
-              <div className="space-x-4 flex flex-row text-sm pt-1 ">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  React
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  Nextjs
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  Tailwind
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                  Firebase
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

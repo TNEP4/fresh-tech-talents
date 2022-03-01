@@ -1,68 +1,132 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-
 import { RiWindyFill } from "react-icons/ri";
+import { RiLinkedinBoxFill, RiTwitterFill, RiGithubFill } from "react-icons/ri";
+  import {
+    collection,
+    getDocs,
+    onSnapshot,
+    query,
+    orderBy,
+    where,
+    doc,
+    getDoc,
+    deleteDoc,
+    updateDoc,
+    setDoc,
+    docSnap,
+  } from "@firebase/firestore";
+  import { db, auth } from "../utils/firebase";
+  import { useContext, useEffect, useState } from "react";
+  import { UserContext } from "../utils/context";
+  import { useRouter } from "next/router";
 
-const tabs = [
+
+
+
+export default function ProjectList(props) {
+
+
+  const { user, username } = useContext(UserContext);
+  console.log(user);
+
+  const tabs = [
     { name: 'Projects', href: '#', count: '52', current: true },
     { name: 'Talent Profiles', href: '#', count: '38', current: false },
   ]
-  
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
+  const [projects, setProjects] = useState([]);
+  const [userId, setUserId] =useState();
+
+
+    useEffect(() => {//getting data 
+      if (user) {
+        const uid = auth.currentUser.uid;
+        setUserId(uid);
+        const collectionRef = collection(db, "users", uid, "projects");
+        const q = query(collectionRef, orderBy("_updatedAt", "desc"));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const projects = [];
+          querySnapshot.forEach((doc) => {
+            console.log("doc id?", doc.id)
+              projects.push({id: doc.id,...doc.data()});
+          });
+          setProjects(projects);
+          console.log("Projects", projects);
+          
+        })
+      }
+    }, [user]);
+
+    const router = useRouter();
+
+    function editHandler(projectId){
+      router.push(`/editProjects/${projectId}`)
+    }
+    
+    async function deleteProject(projectId){
+      await deleteDoc(doc(db, "users", userId, "projects", projectId));
+      setProjects(projects.filter((project, index) => project.id !== projectId));
+    }
+
   
 
-export default function ProjectList() {
   return (
     <div>
       <div className='flex flex-col space-y-10 mb-10'>
-
-          {/* Row 1 */}
-          <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
+        {
+          projects.map((project, index)=> {
+            const stacks = project.stack;
+            console.log("Stacks from map", stacks)
+            console.log("project id", project.id)
+            return(
+            <div key = {index} className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
               <div className=''>
-                  <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
+                  <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src={project.imageUrl} />
               </div>
               <div className='flex flex-col py-2 px-6 text-zinc-50 w-full'>
                   <div className='flex justify-between flex-row w-full items-center'>
                       <div className='float-left'>
-                          <h1 className='text-xl font-medium'>Project name 1</h1>
+                          <h1 className='text-xl font-medium'>{project.title}</h1>
                       </div>
                       <div className='float-right space-x-4 flex flex-row text-sm'>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          React
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Nextjs
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Tailwind
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Firebase
-                        </span> 
+                        {
+                          stacks? 
+                          stacks.map((stackItem, index)=>{
+                            
+                            return(
+                              <span key= {index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
+                                {stackItem}
+                              </span>
+                            )
+                          }) 
+                          :null 
+                          
+                        }
+                       
                       </div>
                   </div>
                   <div className='w-full mt-3 text-zinc-200 space-y-2'>
                     <p className='text-sm'>
-                      This is the project overview, that will describe in one sentence what the project is about.
+                      {project.overview}
                     </p>
                     <p className='text-sm'>
-                      This is the project description, that will describe in two sentences why the talent created the project, with which tool stack, and how much time it took him to complete it.
+                      {project.description}
                     </p>
                   </div>
                   <div className='w-full mt-3'>
                       <div className='flex flex-row space-x-4 text-sm font-medium'>
                         <p>
-                          Talent Full Name
+                          {props.firstName} {props.lastName}
                         </p>                 
                         <p>
-                          Los Angeles, California
+                          {props.location}
                         </p>
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-gradient-to-br from-zinc-800 to-zinc-700">
                           <svg className="-ml-0.5 mr-1 h-3 w-3 text-green-400 animate-pulse" fill="currentColor" viewBox="0 0 8 8">
@@ -72,163 +136,25 @@ export default function ProjectList() {
                         </span>  
                       </div>
                   </div>
+                  <div className='flex justify-end'>
+                    <div className='flex justify-end mr-2'>
+                      <button
+                      onClick={(e)=>deleteProject(project.id)}
+                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
+                    </div>
+                    <div className='flex justify-end'>
+                      <button
+                      onClick={(e)=>editHandler(project.id)}
+                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500">Edit</button>
+                    </div>
+                  </div>
+                  
               </div>
             </div>
-            {/* Row 2 */}
-            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
-              <div className=''>
-                  <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
-              </div>
-              <div className='flex flex-col py-2 px-6 text-zinc-50 w-full'>
-                  <div className='flex justify-between flex-row w-full items-center'>
-                      <div className='float-left'>
-                          <h1 className='text-xl font-medium'>Project name 2</h1>
-                      </div>
-                      <div className='float-right space-x-4 flex flex-row text-sm'>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          React
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Nextjs
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Tailwind
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Firebase
-                        </span> 
-                      </div>
-                  </div>
-                  <div className='w-full mt-3 text-zinc-200 space-y-2'>
-                    <p className='text-sm'>
-                      This is the project overview, that will describe in one sentence what the project is about.
-                    </p>
-                    <p className='text-sm'>
-                      This is the project description, that will describe in two sentences why the talent created the project, with which tool stack, and how much time it took him to complete it.
-                    </p>
-                  </div>
-                  <div className='w-full mt-3'>
-                      <div className='flex flex-row space-x-4 text-sm font-medium'>
-                        <p>
-                          Talent Full Name
-                        </p>                 
-                        <p>
-                          Los Angeles, California
-                        </p>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          <svg className="-ml-0.5 mr-1 h-3 w-3 text-green-400 animate-pulse" fill="currentColor" viewBox="0 0 8 8">
-                            <circle cx={4} cy={4} r={3} />
-                          </svg>
-                          OPEN TO WORK
-                        </span>  
-                      </div>
-                  </div>
-              </div>
-            </div>
-            {/* Row 3 */}
-            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
-              <div className=''>
-                  <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
-              </div>
-              <div className='flex flex-col py-2 px-6 text-zinc-50 w-full'>
-                  <div className='flex justify-between flex-row w-full items-center'>
-                      <div className='float-left'>
-                          <h1 className='text-xl font-medium'>Project name 3</h1>
-                      </div>
-                      <div className='float-right space-x-4 flex flex-row text-sm'>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          React
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Nextjs
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Tailwind
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Firebase
-                        </span> 
-                      </div>
-                  </div>
-                  <div className='w-full mt-3 text-zinc-200 space-y-2'>
-                    <p className='text-sm'>
-                      This is the project overview, that will describe in one sentence what the project is about.
-                    </p>
-                    <p className='text-sm'>
-                      This is the project description, that will describe in two sentences why the talent created the project, with which tool stack, and how much time it took him to complete it.
-                    </p>
-                  </div>
-                  <div className='w-full mt-3'>
-                      <div className='flex flex-row space-x-4 text-sm font-medium'>
-                        <p>
-                          Talent Full Name
-                        </p>                 
-                        <p>
-                          Los Angeles, California
-                        </p>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          <svg className="-ml-0.5 mr-1 h-3 w-3 text-green-400 animate-pulse" fill="currentColor" viewBox="0 0 8 8">
-                            <circle cx={4} cy={4} r={3} />
-                          </svg>
-                          OPEN TO WORK
-                        </span>  
-                      </div>
-                  </div>
-              </div>
-            </div>
-            {/* Row 4 */}
-            <div className='rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20'>
-              <div className=''>
-                  <img className='object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm' src='https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80' />
-              </div>
-              <div className='flex flex-col py-2 px-6 text-zinc-50 w-full'>
-                  <div className='flex justify-between flex-row w-full items-center'>
-                      <div className='float-left'>
-                          <h1 className='text-xl font-medium'>Project name 4</h1>
-                      </div>
-                      <div className='float-right space-x-4 flex flex-row text-sm'>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          React
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Nextjs
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Tailwind
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          Firebase
-                        </span> 
-                      </div>
-                  </div>
-                  <div className='w-full mt-3 text-zinc-200 space-y-2'>
-                    <p className='text-sm'>
-                      This is the project overview, that will describe in one sentence what the project is about.
-                    </p>
-                    <p className='text-sm'>
-                      This is the project description, that will describe in two sentences why the talent created the project, with which tool stack, and how much time it took him to complete it.
-                    </p>
-                  </div>
-                  <div className='w-full mt-3'>
-                      <div className='flex flex-row space-x-4 text-sm font-medium'>
-                        <p>
-                          Talent Full Name
-                        </p>                 
-                        <p>
-                          Los Angeles, California
-                        </p>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-300 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                          <svg className="-ml-0.5 mr-1 h-3 w-3 text-zinc-300" fill="currentColor" viewBox="0 0 8 8">
-                            <circle cx={4} cy={4} r={3} />
-                          </svg>
-                          NOT SEARCHING
-                        </span>  
-                      </div>
-                  </div>
-              </div>
-            </div>
+            )
+          })
+        }
         </div>
-
     </div>
   )
 }
