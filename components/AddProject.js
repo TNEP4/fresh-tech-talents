@@ -21,6 +21,7 @@ export default function AddProject() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [overview, setOverview] = useState("");
    
   const [stack, setStack] = useState([]);
   const [checked, setChecked] = useState({
@@ -43,8 +44,10 @@ export default function AddProject() {
     let docRef = doc(collectionRef);
     setDoc(docRef, {
       title,
+      overview,
       description,
       imageUrl,
+      stack,
       _createdAt: serverTimestamp(),
       _updatedAt: serverTimestamp(),
     });
@@ -92,7 +95,7 @@ export default function AddProject() {
                   className="block text-sm font-medium text-zinc-200"
                 >
                   {" "}
-                  Project Title{" "}
+                  Title{" "}
                 </label>
                 <div className="mt-1 flex rounded-md shadow-sm">
                   <input
@@ -113,7 +116,28 @@ export default function AddProject() {
                   className="block text-sm font-medium text-zinc-200"
                 >
                   {" "}
-                  Project Description{" "}
+                  Overview{" "}
+                </label>
+                <div className="mt-1 flex rounded-md shadow-sm">
+                  <input
+                    type="text"
+                    name="overview"
+                    id="overview"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none text-zinc-200 rounded-r-md sm:text-sm border-gray-300"
+                    value={overview}
+                    onChange={(e) => setOverview(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              <div className="col-span-3 sm:col-span-2">
+                <label
+                  htmlFor="company-website"
+                  className="block text-sm font-medium text-zinc-200"
+                >
+                  {" "}
+                  Description{" "}
                 </label>
                 <div className="mt-1 flex rounded-md shadow-sm">
                   <input
