@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
-import { firebase } from '../../utils/firebase';
+import { firebase } from "../utils/firebase";
 
 
 import Head from 'next/head'
