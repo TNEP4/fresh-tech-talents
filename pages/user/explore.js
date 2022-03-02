@@ -7,6 +7,7 @@ import { RiWindyFill } from "react-icons/ri";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PrivateDisplay from "../../components/PrivateDisplay";
+import PublicDisplay from "../../components/PublicDisplay";
 
 export default function ExplorePage() {
   return (
@@ -21,7 +22,8 @@ export default function ExplorePage() {
       </Head>
       <div className="bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800">
         <main className="pt-1 mx-auto max-w-7xl px-4 sm:px-8 pb-12 h-full">
-          <PrivateDisplay />
+          {/* <PrivateDisplay /> */}
+          <PublicDisplay />
         </main>
       </div>
     </>

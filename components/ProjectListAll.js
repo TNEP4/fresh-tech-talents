@@ -80,7 +80,7 @@ export default function ProjectListAll(props) {
   }, []);
 
   return (
-    <div className="mt-5 mx-4 ">
+    <div className="mt-5 mx-2 ">
       <div className="flex flex-col space-y-10 mb-10">
         {projects.map((project, index) => {
           const stacks = project.stack;

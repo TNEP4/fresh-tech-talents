@@ -169,7 +169,7 @@ export default function Profile() {
             })}
           </div>
             <div>
-            <button onClick={editProfile} className="text-zinc-200 px-4 py-2 bg-zinc-600 text-sm font-medium rounded-full right-0 hover:bg-green-500 hover:text-white transition">
+            <button onClick={editProfile} className="text-zinc-200 px-4 py-2 bg-zinc-700 text-sm font-medium rounded-full right-0 hover:bg-green-500 hover:text-white transition">
                 Edit Profile
             </button>
             </div>

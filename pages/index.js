@@ -26,7 +26,7 @@ export default function Home() {
 
       <Hero />
       <CardSlideshow />
-      {user ? <PrivateDisplay /> : <PublicDisplay />}
+      <PublicDisplay />
     </div>
   );
 }

@@ -93,7 +93,7 @@ export default function PublicDisplay() {
           </div>
         </div>
 
-        <div className="mt-12 pb-12">
+        <div className="mt-10 pb-10">
           {/* Conditionally render either the project or talent list */}
           {showProjects ? (
             <div>
