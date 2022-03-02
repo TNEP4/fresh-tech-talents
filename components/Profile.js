@@ -34,7 +34,6 @@ export default function Profile() {
         const docRef = doc(db, "users", uid);
         const docSnap = getDoc(docRef)
         .then((doc) => {
-
             docSnap = doc.data();
             console.log('docSnap', docSnap);
             setPhotoURL(docSnap.photoURL);
