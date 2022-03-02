@@ -8,7 +8,7 @@ import { UserContext } from './context';
 
 // Custom hook to read  auth record and user profile doc
 export function useUserData() {
-  const [user] = useAuthState(auth);
+  const [user, setUser] = useAuthState(auth);
   const [username, setUsername] = useState(null);
 
   return { user, username };

@@ -9,7 +9,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 import { RiWindyFill } from "react-icons/ri";
 
-import ProjectList from './ProjectList';
+import ProjectListAll from './ProjectListAll';
 import TalentList from './TalentList'
 
 const tabs = [
@@ -93,7 +93,12 @@ export default function PublicDisplay() {
 
           <div className='mt-12 pb-12'>
             {/* Conditionally render either the project or talent list */}
-            {showProjects ? <ProjectList /> : null}
+            {showProjects ?
+            <div>
+             <ProjectListAll/> 
+             </div>
+            : null}
+            
             {showTalents ? <TalentList /> : null}
           </div>
            
