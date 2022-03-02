@@ -94,7 +94,7 @@ export default function PrivateDisplay() {
           <div className='mt-12 pb-12'>
             {/* Conditionally render either the project or talent list */}
             {showProjects ? <ProjectList /> : null}
-            {showTalents ? <TalentList /> : null}
+            {showTalents ? <TalentList/> : null}
           </div>
            
 

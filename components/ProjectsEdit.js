@@ -18,7 +18,7 @@ import { db, auth } from "../utils/firebase";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../utils/context";
 import { useRouter } from "next/router";
-
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 
 
@@ -64,22 +64,49 @@ export default function ProjectEdit() {
   }, [user]);
 
 
-  async function updateProject(e) {
+function updateProject(e) {
     e.preventDefault();
     const uid = auth.currentUser.uid;
    
-    const docRef = doc(db, "users", uid, "projects", projectId);
+    const docRef = doc(db, "users", uid);
+    const docSnap = getDoc(docRef).then((doc) => {
+      docSnap = doc.data();
+      console.log("docSnap", docSnap);
+    });
+  const storage = getStorage();
+  let imgId = Math.floor(Math.random() * 1000000);
+  const storageRef = ref(storage, `images${imgId}`);
+  uploadBytes(storageRef, image).then((snapshot) => {
+    console.log("Uploaded a blob or file!");
+    const storageRef = ref(storage, `images${imgId}`);
+    getDownloadURL(storageRef, image).then((url) => {
+      console.log("image URL", url);
+      setImageUrl(url);
+     const docRef = doc(db, "users", uid, "projects", projectId);
     const payload = {
       title,
       overview,
       description,
-      imageUrl,
+      imageUrl:url,
       stack,
       _updatedAt: serverTimestamp(),
     }
-    await setDoc(docRef, payload);
-    router.push("/user/profile")
+   setDoc(docRef, payload);
+    router.push("/user/profile") 
+    });
+  });
   }
+
+
+  const [image, setImage] = useState(null);
+  const changeHandler = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+
+
 
   function stackHandler(e) {
     e.preventDefault();
@@ -198,10 +225,9 @@ export default function ProjectEdit() {
                 </label>
                 <div className="mt-1 flex rounded-md shadow-sm">
                   <input
-                    type="text"
+                    type="file"
                     name="imageUrl"
-                    value={imageUrl}
-                    onChange={(e)=>setImageUrl(e.target.value)}
+                    onChange={changeHandler}
                     className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
                   />
                 </div>

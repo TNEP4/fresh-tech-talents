@@ -28,7 +28,7 @@ import { RiLinkedinBoxFill, RiTwitterFill, RiGithubFill } from "react-icons/ri";
 
 
 
-export default function ProjectList(props) {
+export default function ProjectListAll(props) {
   const tabs = [
     { name: 'Projects', href: '#', count: '52', current: true },
     { name: 'Talent Profiles', href: '#', count: '38', current: false },
@@ -41,54 +41,49 @@ export default function ProjectList(props) {
   const [projects, setProjects] = useState([]);
   const [userId, setUserId] =useState();
   const [images, setImages] = useState();
+  const [talent, setTalent] = useState([]);
 
-    useEffect(() => {//getting data 
-      if (user) {
-        try{
-        const uid = auth.currentUser.uid;
-        setUserId(uid);
-        const collectionRef = collection(db, "users", uid, "projects");
-        const q = query(collectionRef, orderBy("_updatedAt", "desc"));
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-          const projects = [];
-          querySnapshot.forEach((doc) => {
-            console.log("doc id?", doc.id)
-              projects.push({id: doc.id,...doc.data()});
-          });
-          setProjects(projects);
-          console.log("Projects", projects);
-          
-        })
-      }catch{
-        console.log("error")
-      }
-      }
-    }, [user]);
-  
+ const allUsers = [];
+ const allProjects = [];
 
-    function editHandler(projectId){
-      router.push(`/editProjects/${projectId}`)
-    }
-    
-    async function deleteProject(projectId){
-      await deleteDoc(doc(db, "users", userId, "projects", projectId));
-      setProjects(projects.filter((project, index) => project.id !== projectId));
-    }
-
-  
+ useEffect(() => {
+  getDocs(collection(db, "users"))
+    .then((querySnapshot) => {
+      const talentDataArray = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setTalent(talentDataArray);
+      console.log("talent array", talentDataArray);
+      talentDataArray.map((item)=>{
+          allUsers.push(item.id)
+          // console.log("user id", item.id)
+          // console.log(allUsers)
+      })
+          console.log(allUsers.length)
+          for (let i=0; i<allUsers.length; i++){
+                  const uid = allUsers[i];
+                  console.log("each user", allUsers[i])
+                  const collectionRef = collection(db, "users", uid, "projects");
+                  const q = query(collectionRef, orderBy("_updatedAt", "desc"));
+                  const unsubscribe = onSnapshot(q, (querySnapshot) => {
+                    const projects = [];
+                    querySnapshot.forEach((doc) => {
+                      console.log("doc id?", doc.id)
+                        projects.push({id: doc.id,...doc.data()});
+                    });
+                    allProjects.push(projects);
+                    const flatArray = allProjects.flat()
+                    console.log("AllProjects", allProjects);
+                    console.log("flat array", flatArray);
+                    setProjects(flatArray);
+                  })
+              }
+    })
+}, []);
 
   return (
     <div className='mt-5 mx-4 '>
-      <div className="space-y-4">
-          <div className="hidden sm:block" aria-hidden="true">
-            <div className="py-2">
-                <div className="flex justify-between">
-                <p className="font-bold text-zinc-200 mx-4">Projects</p>
-              </div>
-              <div className="border-t border-gray-200 mt-3  p-2"></div>
-            </div>
-          </div>
-        </div>
       <div className='flex flex-col space-y-10 mb-10'>
         {
           projects.map((project, index)=> {
@@ -138,11 +133,8 @@ export default function ProjectList(props) {
                   <div className='w-full mt-3'>
                       <div className='flex flex-row space-x-4 text-sm font-medium'>
                         <p>
-                          {props.firstName} {props.lastName}
+                          {project.firstName} {project.lastName}
                         </p>                 
-                        <p>
-                          {props.location}
-                        </p>
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-gradient-to-br from-zinc-800 to-zinc-700">
                           <svg className="-ml-0.5 mr-1 h-3 w-3 text-green-400 animate-pulse" fill="currentColor" viewBox="0 0 8 8">
                             <circle cx={4} cy={4} r={3} />
@@ -151,19 +143,6 @@ export default function ProjectList(props) {
                         </span>  
                       </div>
                   </div>
-                  <div className='flex justify-end'>
-                    <div className='flex justify-end mr-2'>
-                      <button
-                      onClick={(e)=>deleteProject(project.id)}
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
-                    </div>
-                    <div className='flex justify-end'>
-                      <button
-                      onClick={(e)=>editHandler(project.id)}
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500">Edit</button>
-                    </div>
-                  </div>
-                  
               </div>
             </div>
             )

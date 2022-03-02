@@ -181,17 +181,6 @@ export default function Profile() {
           </div>
         </div>
 
-        <div className="space-y-4">
-          
-          <div className="hidden sm:block" aria-hidden="true">
-          <div className="py-2">
-              <div className="flex justify-between">
-              <p className="font-bold">Projects</p>
-            </div>
-            <div className="border-t border-gray-200 mt-3"></div>
-          </div>
-        </div>
-        </div>
       </div>
     </div>
   );
