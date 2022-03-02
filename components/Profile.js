@@ -18,6 +18,7 @@ import { db, auth } from "../utils/firebase";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../utils/context";
 import { useRouter } from "next/router";
+import ProjectList from "./ProjectList";
 
 export default function Profile() {
   const { user, username } = useContext(UserContext);
@@ -175,7 +176,9 @@ export default function Profile() {
             </div>
           </div>
           </div>
+          <ProjectList />
       </div>
+      
     </div>
   );
 }

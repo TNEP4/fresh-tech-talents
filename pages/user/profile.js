@@ -54,11 +54,6 @@ export default function ProfilePage(props) {
       <div className="bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800">
         <main className="pt-8 sm:pt-12 mx-auto max-w-6xl px-4 sm:px-8 pb-12 h-full">
           <Profile />
-          <ProjectList
-            firstName={userData.firstName}
-            lastName={userData.lastName}
-            location={userData.location}
-          />
         </main>
       </div>
     </>

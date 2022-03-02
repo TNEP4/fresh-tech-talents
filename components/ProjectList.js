@@ -73,18 +73,18 @@ export default function ProjectList(props) {
   }
 
   return (
-    <div className="mt-5 mx-4 ">
-      <div className="space-y-4">
+    <div className="mt-5 ">
+      <div className="space-y-2">
         <div className="hidden sm:block" aria-hidden="true">
-          <div className="py-2">
+          <div className="py-1">
             <div className="flex justify-between">
-              <p className="font-bold text-zinc-200 mx-4">Projects</p>
+              <p className="font-bold text-white">Projects</p>
             </div>
-            <div className="border-t border-gray-200 mt-3  p-2"></div>
+            <div className="h-0.5 bg-gradient-to-br from-zinc-600 via-zinc-600 to-zinc-800 mt-2 rounded-full"></div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col space-y-10 mb-10">
+      <div className="flex flex-col space-y-7 mt-4">
         {projects.map((project, index) => {
           const stacks = project.stack;
           console.log("Stacks from map", stacks);
