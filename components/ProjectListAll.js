@@ -94,7 +94,7 @@ export default function ProjectListAll(props) {
               <div className="">
                 {}
                 <img
-                  className="p-2 object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm"
+                  className="object-cover object-center h-40 w-80"
                   src={project.imageUrl}
                 />
               </div>
