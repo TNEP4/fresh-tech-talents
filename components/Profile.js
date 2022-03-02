@@ -19,10 +19,6 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../utils/context";
 import { useRouter } from "next/router";
 
-
-
-
-
 export default function Profile() {
   const { user, username } = useContext(UserContext);
   console.log(user);
@@ -70,25 +66,26 @@ export default function Profile() {
       });
     }
   }, [user]);
-    const router = useRouter();
-    function editProfile(){
-      router.push("/user/editProfile")
-    }
+  const router = useRouter();
+  function editProfile() {
+    router.push("/user/editProfile");
+  }
 
-    function editProjects(){
-      router.push("/user/editProjects")
-    }
-
+  function editProjects() {
+    router.push("/user/editProjects");
+  }
 
   return (
     <div className="mx-1 rounded-sm flex flex-row shadow-lg shadow-zinc-400/10 border border-zinc-800/20">
-     
       <div className="p-3 sm:p-6 text-zinc-100 w-full space-y-3">
         <div className="hidden sm:block" aria-hidden="true">
           <div className="py-2">
             <div className="flex justify-between">
-            <p className="font-bold">Profile Info</p>
-              <button onClick={editProfile} className="text-zinc-200"> Edit Profile </button>
+              <p className="font-bold">Profile Info</p>
+              <button onClick={editProfile} className="text-zinc-200">
+                {" "}
+                Edit Profile{" "}
+              </button>
             </div>
             <div className="border-t border-gray-200 mt-3"></div>
           </div>
@@ -173,14 +170,16 @@ export default function Profile() {
           <div className="space-x-2">
             {stack.map((stackItem, index) => {
               return (
-                <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
+                <span
+                  key={index}
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
+                >
                   {stackItem}
                 </span>
               );
             })}
           </div>
         </div>
-
       </div>
     </div>
   );

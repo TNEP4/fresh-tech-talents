@@ -19,8 +19,6 @@ import { UserContext } from "../utils/context";
 import { useRouter } from "next/router";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
-
-
 export default function ProfileEdit() {
   const { user, username } = useContext(UserContext);
   console.log(user);
@@ -92,12 +90,10 @@ export default function ProfileEdit() {
     }
   }, [user]);
 
-
-  
-function saveHandle(e) {
+  function saveHandle(e) {
     e.preventDefault();
     const storage = getStorage();
-    let imgId = (`Avatar${Math.floor(Math.random() * 1000000)}`);
+    let imgId = `Avatar${Math.floor(Math.random() * 1000000)}`;
     const storageRef = ref(storage, `images${imgId}`);
     uploadBytes(storageRef, image).then((snapshot) => {
       console.log("Uploaded a blob or file!");
@@ -129,16 +125,12 @@ function saveHandle(e) {
           photoURL: url,
           userName,
         };
-       setDoc(docRef, payload);
-        
+        setDoc(docRef, payload);
       });
     });
     router.push(`/user/profile`);
     return false; // Prevent page refresh
-
-}
-
-
+  }
 
   const [image, setImage] = useState(null);
   const changeHandler = (e) => {
@@ -146,7 +138,6 @@ function saveHandle(e) {
       setImage(e.target.files[0]);
     }
   };
-
 
   function stackHandler(value) {
     console.log("Bang!");
@@ -173,22 +164,21 @@ function saveHandle(e) {
     });
   };
 
-  function interestsHandler(e){
-    const interestObject= {...interests};
+  function interestsHandler(e) {
+    const interestObject = { ...interests };
     interestObject[e.target.name] = e.target.value;
     setInterests(interestObject);
   }
-  function prefersHandler(e){
-    const prefersObject= {...prefers};
+  function prefersHandler(e) {
+    const prefersObject = { ...prefers };
     prefersObject[e.target.name] = e.target.value;
     setPrefers(prefersObject);
   }
-  function languagesHandler(e){
-    const languageObject= {...languages};
+  function languagesHandler(e) {
+    const languageObject = { ...languages };
     languageObject[e.target.name] = e.target.value;
     setLanguages(languageObject);
   }
-
 
   return (
     <div className="mx-1 rounded-sm flex flex-row shadow-lg shadow-zinc-400/10 border border-zinc-800/20">
@@ -202,10 +192,13 @@ function saveHandle(e) {
               </legend>
             </div>
             <div className="space-x-2 flex w-full mb-6">
-            <p className= "mr-5">Current stack:</p>
+              <p className="mr-5">Current stack:</p>
               {stack.map((stackItem, index) => {
                 return (
-                  <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
+                  <span
+                    key={index}
+                    className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
+                  >
                     {stackItem}
                     <span
                       onClick={(e) => deleteStack(stackItem)}
@@ -322,14 +315,14 @@ function saveHandle(e) {
           </fieldset>
         </div>
         <div className="px-4 py-3 text-right sm:px-6 ">
-                    <button
-                      onClick={(e) => saveHandle(e)}
-                      type="submit"
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                      Save
-                    </button>
-                  </div>
+          <button
+            onClick={(e) => saveHandle(e)}
+            type="submit"
+            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Save
+          </button>
+        </div>
         <div className="hidden sm:block" aria-hidden="true">
           <div className="py-5">
             <div className="border-t border-gray-200"></div>
@@ -351,12 +344,10 @@ function saveHandle(e) {
             <div className="mt-5 md:mt-0 md:col-span-2">
               <form action="#" method="POST">
                 <div className="shadow sm:rounded-md sm:overflow-hidden">
-                  <div className="px-4 py-5 bg-zinc-800 space-y-6 sm:p-6"> 
+                  <div className="px-4 py-5 bg-zinc-800 space-y-6 sm:p-6">
                     <div className="grid grid-cols-3 gap-6">
                       <div className="col-span-3 sm:col-span-2">
-                        <label
-                          className="block text-sm font-medium text-zinc-200"
-                        >
+                        <label className="block text-sm font-medium text-zinc-200">
                           {" "}
                           Username{" "}
                         </label>
@@ -375,9 +366,7 @@ function saveHandle(e) {
                     </div>
                     <div className="grid grid-cols-3 gap-6">
                       <div className="col-span-3 sm:col-span-2">
-                        <label
-                          className="block text-sm font-medium text-zinc-200"
-                        >
+                        <label className="block text-sm font-medium text-zinc-200">
                           {" "}
                           Display name{" "}
                         </label>
@@ -433,9 +422,11 @@ function saveHandle(e) {
                             viewBox="0 0 24 24"
                           />
                         </span>
-                        
+
                         <div className="mt-1 w-full flex rounded-md shadow-sm">
-                          <span className="text-zinc-200 ml-3">Upload Photo: </span>
+                          <span className="text-zinc-200 ml-3">
+                            Upload Photo:{" "}
+                          </span>
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
                               type="file"
@@ -597,8 +588,6 @@ function saveHandle(e) {
                         />
                       </div>
 
-                      
-
                       <div className="col-span-6">
                         <label
                           htmlFor="location"
@@ -630,8 +619,9 @@ function saveHandle(e) {
                           name="0"
                           id="interests0"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                           
-                          onChange={(e)=> {interestsHandler(e)}}
+                          onChange={(e) => {
+                            interestsHandler(e);
+                          }}
                         />
                         <input
                           type="text"
@@ -639,7 +629,9 @@ function saveHandle(e) {
                           name="1"
                           id="interests1"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {interestsHandler(e)}}
+                          onChange={(e) => {
+                            interestsHandler(e);
+                          }}
                         />
                         <input
                           type="text"
@@ -647,7 +639,9 @@ function saveHandle(e) {
                           name="2"
                           id="interests2"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {interestsHandler(e)}}
+                          onChange={(e) => {
+                            interestsHandler(e);
+                          }}
                         />
                       </div>
 
@@ -664,7 +658,9 @@ function saveHandle(e) {
                           name="0"
                           id="prefers0"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {prefersHandler(e)}}
+                          onChange={(e) => {
+                            prefersHandler(e);
+                          }}
                         />
                         <input
                           type="text"
@@ -672,7 +668,9 @@ function saveHandle(e) {
                           name="1"
                           id="prefers1"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {prefersHandler(e)}}
+                          onChange={(e) => {
+                            prefersHandler(e);
+                          }}
                         />
                         <input
                           type="text"
@@ -680,7 +678,9 @@ function saveHandle(e) {
                           name="2"
                           id="prefers2"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {prefersHandler(e)}}
+                          onChange={(e) => {
+                            prefersHandler(e);
+                          }}
                         />
                       </div>
 
@@ -697,7 +697,9 @@ function saveHandle(e) {
                           name="0"
                           id="languages0"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {languagesHandler(e)}}
+                          onChange={(e) => {
+                            languagesHandler(e);
+                          }}
                         />
                         <input
                           type="text"
@@ -705,7 +707,9 @@ function saveHandle(e) {
                           name="1"
                           id="languages1"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {languagesHandler(e)}}
+                          onChange={(e) => {
+                            languagesHandler(e);
+                          }}
                         />
                         <input
                           type="text"
@@ -713,8 +717,10 @@ function saveHandle(e) {
                           name="2"
                           id="languages2"
                           className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
-                          onChange={(e)=> {languagesHandler(e)}}
-                       />
+                          onChange={(e) => {
+                            languagesHandler(e);
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -738,9 +744,6 @@ function saveHandle(e) {
             <div className="border-t border-gray-200"></div>
           </div>
         </div>
-
-        
-
       </div>
     </div>
   );

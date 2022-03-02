@@ -65,12 +65,14 @@ export default function TalentList(props) {
         {talent.map((tal, index) => {
           const stacks = tal.stack;
           const interestsItems = tal.interests;
-          
-
 
           return (
-            <div key={index} className="rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20">
-              <div className="">{console.log(typeof interestsItems )}
+            <div
+              key={index}
+              className="rounded-sm flex flex-row shadow-xl hover:shadow-lg hover:shadow-green-400/60 cursor-pointer border border-zinc-800/20"
+            >
+              <div className="">
+                {console.log(typeof interestsItems)}
                 <img
                   className="object-cover object-center h-40 w-80 rounded-tl-sm rounded-bl-sm"
                   src={tal.photoURL}
@@ -82,33 +84,44 @@ export default function TalentList(props) {
                     <h1 className="text-xl font-medium">{tal.displayName}</h1>
                   </div>
                   <div className="float-right space-x-4 flex flex-row text-sm">
-                  {stacks.map((stackItem, index) => {
-                    return (
-                      <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700">
-                        {stackItem}
-                      </span>
-                    );
-                  })}
-                   
+                    {stacks.map((stackItem, index) => {
+                      return (
+                        <span
+                          key={index}
+                          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-zinc-50 bg-gradient-to-br from-zinc-800 to-zinc-700"
+                        >
+                          {stackItem}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className="w-full mt-3 text-zinc-200 space-y-2">
-                  <p className="text-sm"> Interests: { 
-                      interestsItems[0] && interestsItems[1] ? 
-                        <span> {interestsItems[0]},</span> 
-                        : <span>{interestsItems[0]}</span>}
-                           {interestsItems[1] && interestsItems[2] ?
-                              <span> {interestsItems[1]}, {interestsItems[2]}</span> 
-                              : <span>{interestsItems[1]}</span>}
-                              </p>
-                        
                   <p className="text-sm">
-                   {tal.bio}
+                    {" "}
+                    Interests:{" "}
+                    {interestsItems[0] && interestsItems[1] ? (
+                      <span> {interestsItems[0]},</span>
+                    ) : (
+                      <span>{interestsItems[0]}</span>
+                    )}
+                    {interestsItems[1] && interestsItems[2] ? (
+                      <span>
+                        {" "}
+                        {interestsItems[1]}, {interestsItems[2]}
+                      </span>
+                    ) : (
+                      <span>{interestsItems[1]}</span>
+                    )}
                   </p>
+
+                  <p className="text-sm">{tal.bio}</p>
                 </div>
                 <div className="w-full mt-3">
                   <div className="flex flex-row space-x-4 text-sm font-medium">
-                    <p>{tal.firstName} {tal.lastName} </p>
+                    <p>
+                      {tal.firstName} {tal.lastName}{" "}
+                    </p>
                     <p>{tal.location} </p>
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-gradient-to-br from-zinc-800 to-zinc-700">
                       <svg
