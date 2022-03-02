@@ -17,7 +17,7 @@ import { db, auth } from "../utils/firebase";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../utils/context";
 import { useRouter } from "next/router";
-
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 
 
@@ -47,7 +47,7 @@ export default function ProfileEdit() {
   const [email, setEmail] = useState("Loading");
   const [userName, setUserName] = useState("Loading");
   const [userId, setUserId] = useState();
-
+  const router = useRouter();
   const [checked, setChecked] = useState({
     Python: false,
     NextJS: false,
@@ -86,37 +86,67 @@ export default function ProfileEdit() {
         setGitHubId(docSnap.githubId);
         setEmail(docSnap.email);
         setUserName(docSnap.githubId);
+        setFirstName(docSnap.firstName);
+        setLastName(docSnap.lastName);
       });
     }
   }, [user]);
-  const router = useRouter();
-  async function saveHandle(e) {
+
+
+  
+function saveHandle(e) {
     e.preventDefault();
-    console.log("UID", userId);
-    const docRef = doc(db, "users", userId);
-    const payload = {
-      displayName,
-      bio,
-      interests,
-      languages,
-      prefers,
-      stack,
-      portfolioUrl,
-      location,
-      socialGithub,
-      socialLinkedin,
-      socialTwitter,
-      openToWork,
-      githubId,
-      firstName,
-      lastName,
-      email,
-      photoURL,
-      userName,
-    };
-    await setDoc(docRef, payload);
-    router.push("/user/profile")
-  }
+    const storage = getStorage();
+    let imgId = (`Avatar${Math.floor(Math.random() * 1000000)}`);
+    const storageRef = ref(storage, `images${imgId}`);
+    uploadBytes(storageRef, image).then((snapshot) => {
+      console.log("Uploaded a blob or file!");
+      const storageRef = ref(storage, `images${imgId}`);
+      getDownloadURL(storageRef, image).then((url) => {
+        console.log("image URL", url);
+        // setImageUrl(url);
+        // let collectionRef = collection(db, "users", uid, "projects");
+        // let docRef = doc(collectionRef);
+        console.log("UID", userId);
+        const docRef = doc(db, "users", userId);
+        const payload = {
+          displayName,
+          bio,
+          interests,
+          languages,
+          prefers,
+          stack,
+          portfolioUrl,
+          location,
+          socialGithub,
+          socialLinkedin,
+          socialTwitter,
+          openToWork,
+          githubId,
+          firstName,
+          lastName,
+          email,
+          photoURL: url,
+          userName,
+        };
+       setDoc(docRef, payload);
+        
+      });
+    });
+    router.push(`/user/profile`);
+    return false; // Prevent page refresh
+
+}
+
+
+
+  const [image, setImage] = useState(null);
+  const changeHandler = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
 
   function stackHandler(value) {
     console.log("Bang!");
@@ -403,17 +433,17 @@ export default function ProfileEdit() {
                             viewBox="0 0 24 24"
                           />
                         </span>
+                        
                         <div className="mt-1 w-full flex rounded-md shadow-sm">
-                          <span className="text-zinc-200 ml-3">New URL: </span>
-                          <input
-                            type="text"
-                            name="username"
-                            id="username"
-                            className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 ml-4"
-                            placeholder={photoURL}
-                            value={photoURL}
-                            onChange={(e) => setPhotoURL(e.target.value)}
-                          />
+                          <span className="text-zinc-200 ml-3">Upload Photo: </span>
+                          <div className="mt-1 flex rounded-md shadow-sm">
+                            <input
+                              type="file"
+                              name="imageUrl"
+                              onChange={changeHandler}
+                              className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
+                            />
+                          </div>
                         </div>
                       </div>
                       <div className="space-x-2 flex flex-row items-center mt-5">

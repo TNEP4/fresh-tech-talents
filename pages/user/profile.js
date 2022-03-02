@@ -29,8 +29,6 @@ export default function ProfilePage(props) {
 const { user, username } = useContext(UserContext);
 
  const[userData, setUserData] = useState("");
- console.log("userdata", userData)
- console.log("first name",userData.firstName )
  
 
     useEffect(() => {
@@ -41,32 +39,10 @@ const { user, username } = useContext(UserContext);
           const docSnap = getDoc(docRef).then((doc) => {
             docSnap = doc.data();
             console.log("docSnap", docSnap);
-           
-                setUserData( docSnap
-                    // displayName: docSnap.displayName,
-                    // bio: docSnap.bio,
-                    // interests: docSnap.interests,
-                    // languages: docSnap.languages,
-                    // prefers: docSnap.prefers,
-                    // stack: docSnap.stack,
-                    // portfolioUrl: docSnap.portfolioUrl,
-                    // location: docSnap.location,
-                    // openToWork: docSnap.openToWork,
-                    // userName: docSnap.userName,
-                    // email: docSnap.email,
-                    // githubId: docSnap.githubId,
-                    // firstName: docSnap.firstName,
-                    // lastName: docSnap.lastName
-                      )
+            setUserData( docSnap)
         })
         }
       }, [user]);
-
-
-      
-
-
-
 
     return (
         <>

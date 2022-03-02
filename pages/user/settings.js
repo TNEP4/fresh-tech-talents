@@ -1,24 +1,25 @@
 import { useRouter } from 'next/router';
-
+import React, {useEffect, useState, useContext} from 'react';
+import { UserContext} from '../../utils/context';
 import Head from 'next/head'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import { RiWindyFill } from "react-icons/ri";
-
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Footer from '../../components/Footer';
 import PrivateDisplay from '../../components/PrivateDisplay';
-
 import { auth } from '../../utils/firebase';
 
 
-export default function AddProject() {
+export default function Settings() {
 
-    const router = useRouter()
+    const router = useRouter();
 
 
     // Sign out button
     function SignOutButton() {
         auth.signOut();
         router.push('/');
+
     }
 
 

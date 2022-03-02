@@ -20,7 +20,7 @@ export default function AddProjectPage() {
        
         <div className='bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 h-screen' >
             <main className="pt-8 sm:pt-12 mx-auto max-w-7xl px-4 sm:px-8 pb-12 h-full text-white">
-                 <AddProject/>Add a project
+                 <AddProject/>
             </main>
             
             <Footer />

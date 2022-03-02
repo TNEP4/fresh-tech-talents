@@ -10,10 +10,10 @@ import { RiWindyFill } from "react-icons/ri";
 import { RiGithubFill } from "react-icons/ri";
 import { FirebaseError } from 'firebase/app';
 
-export default function TalentSignIn() {
+export default function TalentSignIn(props) {
 
   const router = useRouter()
-
+  const {loggedIn, setLoggedIn} = props;
   const signInWithGithub = async () => {
     const provider = new GithubAuthProvider();
     const auth = getAuth();
@@ -27,6 +27,7 @@ export default function TalentSignIn() {
         const user = result.user;
         router.push('/user/profile');
         console.log(user);
+        setLoggedIn(true);
         // ...
       }).catch((error) => {
         // Handle Errors here.

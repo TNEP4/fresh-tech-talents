@@ -5,7 +5,9 @@ import { getFirestore } from "firebase/firestore";
 import 'firebase/firestore';
 import { GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-import 'firebase/storage'
+import { getStorage } from "firebase/storage";
+import firebase from "firebase/app";
+
 const firebaseConfig = {
     apiKey: "AIzaSyD9txFZ5-bnjr02jRsjwX5glp5HcRZPXnI",
     authDomain: "fresh-tech-talents.firebaseapp.com",
@@ -15,14 +17,15 @@ const firebaseConfig = {
     appId: "1:986885216755:web:e7c1822720e6831c995a86",
     measurementId: "G-JVNY3T467W"
   };
-
 // Initialize Firebase
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps();
 const auth = getAuth();
 const db = getFirestore();
 const provider = new GoogleAuthProvider();
 
-export { db, auth, provider };
+const storage = getStorage(initializeApp(firebaseConfig));
+
+export { db, auth, provider, storage};
 // export const firebase = !fb.apps.length ? fb.initializeApp(firebaseConfig) : fb.app()
 
 
