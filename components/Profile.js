@@ -77,19 +77,7 @@ export default function Profile() {
 
   return (
     <div className="mx-1 rounded-sm flex flex-row shadow-lg shadow-zinc-400/10 border border-zinc-800/20">
-      <div className="p-3 sm:p-6 text-zinc-100 w-full space-y-3">
-        <div className="hidden sm:block" aria-hidden="true">
-          <div className="py-2">
-            <div className="flex justify-between">
-              <p className="font-bold">Profile Info</p>
-              <button onClick={editProfile} className="text-zinc-200">
-                {" "}
-                Edit Profile{" "}
-              </button>
-            </div>
-            <div className="border-t border-gray-200 mt-3"></div>
-          </div>
-        </div>
+      <div className="p-3 sm:p-6 text-zinc-100 w-full space-y-6">
         <div className="flex flex-row space-x-4 w-full">
           <div className="">
             <img src={photoURL} className="rounded-sm h-20 w-20" />
@@ -165,8 +153,9 @@ export default function Profile() {
             {languages[0]}, {languages[1]}, {languages[2]}
           </p>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 w-full flex flex-col">
           <p className="font-bold">Stack</p>
+          <div className="flex flex-row justify-between align-middle">
           <div className="space-x-2">
             {stack.map((stackItem, index) => {
               return (
@@ -179,7 +168,13 @@ export default function Profile() {
               );
             })}
           </div>
-        </div>
+            <div>
+            <button onClick={editProfile} className="text-zinc-200 px-4 py-2 bg-zinc-600 text-sm font-medium rounded-full right-0 hover:bg-green-500 hover:text-white transition">
+                Edit Profile
+            </button>
+            </div>
+          </div>
+          </div>
       </div>
     </div>
   );

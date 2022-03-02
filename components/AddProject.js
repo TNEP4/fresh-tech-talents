@@ -135,7 +135,7 @@ export default function AddProject() {
                     type="text"
                     name="userName"
                     id="userName"
-                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none text-zinc-200 rounded-r-md sm:text-sm border-gray-300"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
@@ -156,7 +156,7 @@ export default function AddProject() {
                     type="text"
                     name="overview"
                     id="overview"
-                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none text-zinc-200 rounded-r-md sm:text-sm border-gray-300"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                     value={overview}
                     onChange={(e) => setOverview(e.target.value)}
                   />
@@ -179,7 +179,7 @@ export default function AddProject() {
                     id="displayName"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm  border-gray-300"
                   />
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function AddProject() {
                     type="file"
                     name="imageUrl"
                     onChange={changeHandler}
-                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
+                    className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm  border-gray-300"
                   />
                 </div>
               </div>

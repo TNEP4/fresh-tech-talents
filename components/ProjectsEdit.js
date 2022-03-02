@@ -141,12 +141,12 @@ export default function ProjectEdit() {
   return (
     <div className="h-full">
       <form
-        className=" w-full mx-auto flex justify-center pb-12"
+        className=" w-full h-full mx-auto flex justify-center pb-20"
         action="#"
         method="POST"
       >
-        <div className="w-full  shadow sm:rounded-md sm:overflow-hidden">
-          <div className="px-4 bg-zinc-800 space-y-6 sm:p-6">
+        <div className="w-full shadow sm:rounded-md sm:overflow-hidden">
+          <div className="px-4 bg-zinc-800 space-y-8 sm:p-6">
             <div className="w-80">
               <label
                 htmlFor="company-website"

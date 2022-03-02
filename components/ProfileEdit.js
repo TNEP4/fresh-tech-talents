@@ -356,7 +356,7 @@ export default function ProfileEdit() {
                             type="text"
                             name="userName"
                             id="userName"
-                            className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none text-zinc-200 rounded-r-md sm:text-sm border-gray-300"
+                            className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                             placeholder={githubId}
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}
@@ -377,7 +377,7 @@ export default function ProfileEdit() {
                             id="displayName"
                             value={displayName}
                             onChange={(e) => setDisplayName(e.target.value)}
-                            className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
+                            className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm  border-gray-300"
                             placeholder={displayName}
                           />
                         </div>
@@ -397,7 +397,7 @@ export default function ProfileEdit() {
                           id="about"
                           name="about"
                           rows="3"
-                          className="bg-zinc-700 text-zinc-200 p-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm text-zinc-200 border border-zinc-800 rounded-md"
+                          className="bg-zinc-700 text-zinc-200 p-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-zinc-800 rounded-md"
                           placeholder={bio}
                           value={bio}
                           onChange={(e) => setBio(e.target.value)}
@@ -432,7 +432,7 @@ export default function ProfileEdit() {
                               type="file"
                               name="imageUrl"
                               onChange={changeHandler}
-                              className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm text-zinc-200  border-gray-300"
+                              className="bg-zinc-700 text-zinc-200 p-1 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm  border-gray-300"
                             />
                           </div>
                         </div>
@@ -548,7 +548,7 @@ export default function ProfileEdit() {
                           placeholder={firstName}
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
-                          className="bg-zinc-700 text-zinc-200 p-1  mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="bg-zinc-700 text-zinc-200 p-1  mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
 
@@ -566,7 +566,7 @@ export default function ProfileEdit() {
                           placeholder={lastName}
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
 
@@ -584,7 +584,7 @@ export default function ProfileEdit() {
                           placeholder={email}
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
 
@@ -602,7 +602,7 @@ export default function ProfileEdit() {
                           onChange={(e) => setLocation(e.target.value)}
                           name="location"
                           id="location"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
 
@@ -618,7 +618,7 @@ export default function ProfileEdit() {
                           placeholder={interests[0]}
                           name="0"
                           id="interests0"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             interestsHandler(e);
                           }}
@@ -628,7 +628,7 @@ export default function ProfileEdit() {
                           placeholder={interests[1]}
                           name="1"
                           id="interests1"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             interestsHandler(e);
                           }}
@@ -638,7 +638,7 @@ export default function ProfileEdit() {
                           placeholder={interests[2]}
                           name="2"
                           id="interests2"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             interestsHandler(e);
                           }}
@@ -657,7 +657,7 @@ export default function ProfileEdit() {
                           placeholder={prefers[0]}
                           name="0"
                           id="prefers0"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             prefersHandler(e);
                           }}
@@ -667,7 +667,7 @@ export default function ProfileEdit() {
                           placeholder={prefers[1]}
                           name="1"
                           id="prefers1"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             prefersHandler(e);
                           }}
@@ -677,7 +677,7 @@ export default function ProfileEdit() {
                           placeholder={prefers[2]}
                           name="2"
                           id="prefers2"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             prefersHandler(e);
                           }}
@@ -696,7 +696,7 @@ export default function ProfileEdit() {
                           placeholder={languages[0]}
                           name="0"
                           id="languages0"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             languagesHandler(e);
                           }}
@@ -706,7 +706,7 @@ export default function ProfileEdit() {
                           placeholder={languages[1]}
                           name="1"
                           id="languages1"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             languagesHandler(e);
                           }}
@@ -716,7 +716,7 @@ export default function ProfileEdit() {
                           placeholder={languages[2]}
                           name="2"
                           id="languages2"
-                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm text-zinc-200 border-gray-300 rounded-md"
+                          className="p-1 bg-zinc-700 text-zinc-200 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-1/3 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           onChange={(e) => {
                             languagesHandler(e);
                           }}
