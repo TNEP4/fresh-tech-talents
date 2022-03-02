@@ -125,7 +125,7 @@ export default function ProjectList(props) {
                   <p className="text-sm">{project.overview}</p>
                   <p className="text-sm">{project.description}</p>
                 </div>
-                <div className="w-full mt-3">
+                {/* <div className="w-full mt-3">
                   <div className="flex flex-row space-x-4 text-sm font-medium">
                     <p>
                       {props.firstName} {props.lastName}
@@ -142,12 +142,12 @@ export default function ProjectList(props) {
                       OPEN TO WORK
                     </span>
                   </div>
-                </div>
+                </div> */}
                 <div className="flex justify-end">
                   <div className="flex justify-end mr-2">
                     <button
                       onClick={(e) => deleteProject(project.id)}
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                      className="inline-flex justify-center py-1 px-3 border border-transparent shadow-sm text-xs font-medium rounded-full text-white bg-red-600/60 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                       Delete
                     </button>
@@ -155,7 +155,7 @@ export default function ProjectList(props) {
                   <div className="flex justify-end">
                     <button
                       onClick={(e) => editHandler(project.id)}
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500"
+                      className="inline-flex justify-center py-1 px-3 border border-transparent shadow-sm text-xs font-medium rounded-full text-white bg-zinc-700 hover:bg-zinc-50 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500"
                     >
                       Edit
                     </button>
