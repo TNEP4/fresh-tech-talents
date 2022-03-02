@@ -45,32 +45,6 @@ export default function Profile() {
   const [openToWork, setOpenToWork] = useState(false);
   const [githubId, setGitHubId] = useState("Loading");
 
-<<<<<<< HEAD
-    useEffect(() => {
-        if (user) {
-        const uid = auth.currentUser.uid;
-        console.log(uid);
-        const docRef = doc(db, "users", uid);
-        const docSnap = getDoc(docRef)
-        .then((doc) => {
-            docSnap = doc.data();
-            console.log('docSnap', docSnap);
-            setPhotoURL(docSnap.photoURL);
-            setDisplayName(docSnap.displayName);
-            setBio(docSnap.bio);
-            setInterests(docSnap.interests);
-            setLanguages(docSnap.languages);
-            setPrefers(docSnap.prefers);
-            setStack(docSnap.stack);
-            setPortfolioUrl(docSnap.portfolioUrl);
-            setLocation(docSnap.location);
-            setSocialGithub(docSnap.socialGithub);
-            setSocialLinkedin(docSnap.socialLinkedin);
-            setSocialTwitter(docSnap.socialTwitter);
-            setOpenToWork(docSnap.openToWork);
-        })
-        }}, [user]);
-=======
   useEffect(() => {
     if (user) {
       const uid = auth.currentUser.uid;
@@ -104,7 +78,6 @@ export default function Profile() {
     function editProjects(){
       router.push("/user/editProjects")
     }
->>>>>>> 49ac928315ac8ef6005719f0ffc3a86a07b533fc
 
 
   return (
